@@ -23,3 +23,15 @@ client/*.ntvs*
 client/*.njsproj
 client/*.sln
 client/*.sw?
+
+# Ignore Python virtual environment
+venv/
+
+# Ignore Python bytecode
+__pycache__/
+
+# Ignore pytest cache
+.pytest_cache/
+
+# Ignore environment variable files
+.env
