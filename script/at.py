@@ -66,6 +66,28 @@ def run(playwright: Playwright) -> None:
             }
         """)
         list_data = [[info.strip() for info in data.strip().split('\n')] for data in list_data]
+        #['10/05 • 21:00', 'Liga 1 • Perú', 'Cienciano', 'FBC Melgar', '2.85', 'Cienciano', '3.20', 'Empate', '2.54', 'FBC Melgar', '1.94', 'Más de 2.5', '1.80', 'Menos de 2.5', '1.70', 'Sí', '2.05', 'No']
+        events = [{
+            'date': data[0],
+            'competition': data[1],
+            'home_team': data[2],
+            'away_team': data[3],
+            'odds_1x2': {
+                data[5]: data[4],
+                data[7]: data[6],
+                data[9]: data[8]
+            },
+            'odds_over_under_2.5': {
+                data[11]: data[10],
+                data[13]: data[12]
+            },
+            'odds_both_score': {
+                data[15]: data[14],
+                data[17]: data[16]
+            }
+        } for data in list_data]
+
+        print(events)
 
 
         print(list_data)
