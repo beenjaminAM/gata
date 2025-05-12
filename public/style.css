@@ -49,81 +49,129 @@ main {
     border-radius: 15px;
 }
 
-.code {
-    white-space: pre; /*line breaks*/
-    display: block;
-    background: #111;
-    color: #0f0;
-    font-family: monospace;
-    padding: 1rem;
-    border-radius: 6px;
-}
-
 /* || ELEMENTS */
 
-.header--title {
+.header__title {
     font-size: 2rem;
 }
 
-.header--nav {
+.header__nav {
     display: inline;
 }
 
-.header--title a {
+.header__title a {
     text-decoration: none;
     color: #333;
 }
 
-.header--nav ul {
+.header__nav ul {
     list-style: none;
 }
 
-.header--nav li{
+.header__nav li{
     display: inline-block;
     margin-inline: 0.5rem;
 }
 
-.header--nav li:nth-child(1):after {
+.header__nav li:nth-child(1):after {
     content: 'Youtube';
 }
-.header--nav li:nth-child(2):after {
+.header__nav li:nth-child(2):after {
     content: 'Github';
 }
-.header--nav li:nth-child(3):after {
+.header__nav li:nth-child(3):after {
     content: 'Next';
 }
-.header--nav li:nth-child(4):after {
+.header__nav li:nth-child(4):after {
     content: 'Docs';
 }
 
-.main--subtitle {
+.main__subtitle {
     margin: 0 0 0.5rem 0;
 }
 
-.main--section {
+.main__section {
     margin: 1rem 0 auto;
 }
 
-.main--section {
+.main__section {
     margin: 1rem 0 0 0;
 }
 
-.main--section article > * {
+.main__section article > * {
     margin-bottom: 1rem;
 }
 
-.main--section article > :nth-child(2)::after {
+.main__section article > :nth-child(2)::after {
     content: 'FROM mcr.microsoft.com/playwright/python:v1.52.0-noble\A\AUSER pwuser\A WORKDIR /home/pwuser/app\A\A# Copy required files\A COPY requirements.txt .\A COPY at.py .\A\A# Install python dependencies\A RUN pip install -r requirements.txt\A\A# run script\A CMD ["python", "./at.py"]';
 }
-.main--section article > :nth-child(3)::after {
+.main__section article > :nth-child(3)::after {
     content: 'mcr.microsoft.com/playwright/python:v1.51.0-noble is designed to work with Playwright and already includes the necessary web browsers (Chromium, Firefox, Webkit) and their system dependencies.'
 }
-.main--section article > :nth-child(4)::after {
-    content: 'docker build -t my-scraper-image . \A docker run -it --rm --ipc=host --user pwuser --security-opt seccomp=seccomp_profile.json my-scraper-image'
+.main__section article > :nth-child(4)::after {
+    content: 'docker build -t my-scraper-image . \A docker run -it --rm --ipc=host --user pwuser --security-opt seccomp=seccomp_profile.json my-scraper-image';
+    /* white-space: pre-wrap;
+    display: block; */
 }
-.main--section article > :nth-child(5)::after {
+.main__section article > :nth-child(5)::after {
     content: 'The Docker image is built using the Dockerfile in the current directory, and the resulting container is then run.'
 }
 
 /* || MODIFIERS */
 /* aka components */
+
+.code {
+    white-space: pre; /*line breaks*/
+    background: #111;
+    color: #0f0;
+    border-radius: 6px;
+    font-family: monospace;
+    overflow-x: auto;
+    max-width: 100%;
+    padding: 0.5rem;
+}
+
+.code--tag {
+    border-top-left-radius: 6px;  
+    border-top-right-radius: 6px; 
+    border-bottom-left-radius: 6px; 
+    border-bottom-right-radius: 6px;
+    position: relative;
+    padding-top: 2.5rem;
+}
+
+.code--dockerfile::before {
+    border-top-left-radius: 6px;  
+    border-top-right-radius: 6px; 
+    content: 'Dockerfiles 🐳';
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;    
+    height: 2rem;   
+    line-height: 2rem; 
+    background-color: #333; 
+    color: #fff; 
+    box-sizing: border-box;
+    padding: 0.5rem; 
+    display: flex;
+    align-items: center;
+}
+
+.code--bash::before {
+    border-top-left-radius: 6px;  
+    border-top-right-radius: 6px; 
+    content: 'bash 🐧';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2rem;  
+    line-height: 2rem;
+    background-color: #333; 
+    color: #fff; 
+    box-sizing: border-box;
+    padding: 0.5rem; 
+    display: flex;
+    align-items: center;
+}
