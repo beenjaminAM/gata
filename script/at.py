@@ -38,7 +38,7 @@ def run(playwright: Playwright) -> None:
 
                 return false;
             }
-        """, arg="Liga 1")
+        """, arg=league)
     
     def events_data_in_page():
         page.wait_for_function("""
@@ -92,7 +92,7 @@ def run(playwright: Playwright) -> None:
 
         print(list_data)
 
-    click_menu_in_page('Liga 1')
+    click_menu_in_page('LaLiga')
 
     events_data_in_page()
 
