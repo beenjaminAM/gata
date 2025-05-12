@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+/* || CSS BASIC RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    font: inherit
+}
+
+/* || VARIABLES */
+
+/* || GENERAL STYLES */
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: white;
+}
+
+header {
+    border-bottom: 1px solid hsl(215, 15%, 92%);;
+    padding: 1vh 4vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main {
+    padding: 1vh 4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* || BLOCKS */
+/* aka components */
+
+.btn {
+    width: 100px;
+    height: 40px;
+    border-radius: 15px;
+}
+
+.code {
+    white-space: pre; /*line breaks*/
+    display: block;
+    background: #111;
+    color: #0f0;
+    font-family: monospace;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+/* || ELEMENTS */
+
+.header--title {
+    font-size: 2rem;
+}
+
+.header--nav {
+    display: inline;
+}
+
+.header--title a {
+    text-decoration: none;
+    color: #333;
+}
+
+.header--nav ul {
+    list-style: none;
+}
+
+.header--nav li{
+    display: inline-block;
+    margin-inline: 0.5rem;
+}
+
+.header--nav li:nth-child(1):after {
+    content: 'Youtube';
+}
+.header--nav li:nth-child(2):after {
+    content: 'Github';
+}
+.header--nav li:nth-child(3):after {
+    content: 'Next';
+}
+.header--nav li:nth-child(4):after {
+    content: 'Docs';
+}
+
+.main--subtitle {
+    margin: 0 0 0.5rem 0;
+}
+
+.main--section {
+    margin: 1rem 0 auto;
+}
+
+.main--section {
+    margin: 1rem 0 0 0;
+}
+
+.main--section article > * {
+    margin-bottom: 1rem;
+}
+
+.main--section article > :nth-child(2)::after {
+    content: 'FROM mcr.microsoft.com/playwright/python:v1.52.0-noble\A\AUSER pwuser\A WORKDIR /home/pwuser/app\A\A# Copy required files\A COPY requirements.txt .\A COPY at.py .\A\A# Install python dependencies\A RUN pip install -r requirements.txt\A\A# run script\A CMD ["python", "./at.py"]';
+}
+.main--section article > :nth-child(3)::after {
+    content: 'mcr.microsoft.com/playwright/python:v1.51.0-noble is designed to work with Playwright and already includes the necessary web browsers (Chromium, Firefox, Webkit) and their system dependencies.'
+}
+.main--section article > :nth-child(4)::after {
+    content: 'docker build -t my-scraper-image . \A docker run -it --rm --ipc=host --user pwuser --security-opt seccomp=seccomp_profile.json my-scraper-image'
+}
+.main--section article > :nth-child(5)::after {
+    content: 'The Docker image is built using the Dockerfile in the current directory, and the resulting container is then run.'
+}
+
+/* || MODIFIERS */
+/* aka components */
