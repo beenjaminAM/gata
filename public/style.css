@@ -106,7 +106,8 @@ main {
     content: 'FROM mcr.microsoft.com/playwright/python:v1.52.0-noble\A\AUSER pwuser\A WORKDIR /home/pwuser/app\A\A# Copy required files\A COPY requirements.txt .\A COPY at.py .\A\A# Install python dependencies\A RUN pip install -r requirements.txt\A\A# run script\A CMD ["python", "./at.py"]';
 }
 .main__section article > :nth-child(3)::after {
-    content: 'mcr.microsoft.com/playwright/python:v1.51.0-noble is designed to work with Playwright and already includes the necessary web browsers (Chromium, Firefox, Webkit) and their system dependencies.'
+    content: 'Dockerfile Step by Step\A\A FROM mcr.microsoft.com/playwright/python:v1.51.0-noble – This is the base image. It includes the OS dependencies needed to run Playwright browsers, but the Playwright Python package isn’t included, so we’ll need to install it ourselves.\A\A USER pwuser – The container will run as the `pwuser` user.\A\A WORKDIR /home/pwuser/app – This sets the working directory inside the container. It helps keep things organized and easier to manage.\A\A COPY requirements.txt . – Copies `requirements.txt` into the working directory.\A\A COPY at.py . – Copies the main Python script into the working directory.\A\A RUN pip install -r requirements.txt – Installs all the Python packages listed in `requirements.txt`.\A\A CMD ["python", "./at.py"] – Runs the scraping script when the container starts.\A\A The Microsoft Playwright image already comes with the necessary browsers and system dependencies, so there’s no need to install Chromium separately.\A\Amcr.microsoft.com/playwright/python:v1.51.0-noble is designed to work with Playwright and already includes the necessary web browsers (Chromium, Firefox, Webkit) and their system dependencies.'
+    
 }
 .main__section article > :nth-child(4)::after {
     content: 'docker build -t my-scraper-image . \A docker run -it --rm --ipc=host --user pwuser --security-opt seccomp=seccomp_profile.json my-scraper-image';
