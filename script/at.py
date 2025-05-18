@@ -82,8 +82,8 @@ def run(playwright: Playwright) -> None:
                 data[13]: data[12]
             },
             'odds_both_score': {
-                data[15]: data[14],
-                data[17]: data[16]
+                data[15] if len(data) > 15 else 'Live': data[14] if len(data) > 14 else 'Live',
+                data[17] if len(data) > 17 else 'Live': data[16] if len(data) > 16 else 'Live'
             }
         } for data in list_data]
 
@@ -92,7 +92,7 @@ def run(playwright: Playwright) -> None:
 
         print(list_data)
 
-    click_menu_in_page('LaLiga')
+    click_menu_in_page('Liga 1')
 
     events_data_in_page()
 
