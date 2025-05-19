@@ -249,3 +249,21 @@ main {
     display: flex;
     align-items: center;
 }
+
+.box {
+    height: 73.33px;
+    width: 60px;
+    background-image: url('walk.jpg');
+    background-position: 0 0;
+    background-size: 180px 73.33px;
+    animation: walkCycle 0.3s steps(3) infinite;
+}
+
+@keyframes walkCycle {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -180px 0;
+    }
+}
