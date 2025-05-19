@@ -46,6 +46,21 @@ def run():
         for item in scroller_items:
             print("-", item)
 
+        try: 
+            league = new_page.locator('xpath=//html/body/app-root/obg-m-betting-layout-container/obg-m-sportsbook-layout-container/app-m-sidenav/mat-sidenav-container/mat-sidenav-content/div')#iframe -> events
+            new_page.wait_for_timeout(4000)
+            dates = new_page.evaluate("""
+                () => {
+                    function getElementByXpath(path) {
+                        return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+                    }
+                    return Array.from(getElementByXpath('/html/body/app-root/obg-m-betting-layout-container/obg-m-sportsbook-layout-container/app-m-sidenav/mat-sidenav-container/mat-sidenav-content/div')?.querySelectorAll('obg-uiuplift-accordion > :not(div)') || []).map(el=>el?.querySelector('.obg-uiuplift-accordion-item-header')?.innerText || null)
+                }
+            """)
+            for date in dates:
+                print(date)
+        except Exception as e:
+            print("⚠️ Error locating event container:", e)
 
         page.wait_for_timeout(30000)
         context.close()
