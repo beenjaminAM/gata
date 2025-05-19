@@ -36,6 +36,12 @@ def run():
             "elements => elements.map(el => el.innerText.trim())"
         )
 
+        new_page.evaluate("""
+            ()=> {
+                Array.from(document.querySelector('.obg-scroller .obg-scroller-container .obg-scroller-content').children).find(el=>el.innerText.toLowerCase().includes('liga 1')).click()
+            }
+        """)
+
         print("items:")
         for item in scroller_items:
             print("-", item)
