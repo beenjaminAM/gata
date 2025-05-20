@@ -53,12 +53,14 @@ def run():
                     return Array.from(getElementByXpath('/html/body/app-root/obg-m-betting-layout-container/obg-m-sportsbook-layout-container/app-m-sidenav/mat-sidenav-container/mat-sidenav-content/div')?.querySelectorAll('obg-uiuplift-accordion > :not(div)') || []).map(el=>el?.querySelector('.obg-uiuplift-accordion-item-header')?.innerText?.trim().replace(/\\n/g, '') || null);
                 }
             """)
-            league.querySelector('.obg-scrollbar-content').scrollTop = league.querySelector('.obg-scrollbar-content').scrollHeight
+            
             events = new_page.evaluate("""
                 () => {
                     function getElementByXpath(path) {
                         return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
                     }
+                    const league = getElementByXpath('/html/body/app-root/obg-m-betting-layout-container/obg-m-sportsbook-layout-container/app-m-sidenav/mat-sidenav-container/mat-sidenav-content/div')
+                    league.querySelector('.obg-scrollbar-content').scrollTop = league.querySelector('.obg-scrollbar-content').scrollHeight
                     let events = Array.from(getElementByXpath('/html/body/app-root/obg-m-betting-layout-container/obg-m-sportsbook-layout-container/app-m-sidenav/mat-sidenav-container/mat-sidenav-content/div')?.querySelectorAll('obg-uiuplift-accordion > :not(div)') || []).flatMap(el => Array.from(el?.querySelector('.obg-uiuplift-accordion-item-content')?.querySelector('.obg-event-table-container')?.querySelectorAll('a.obg-event-row-details') || []).map(a => a.querySelector('div.obg-event-scorecard-labels.event-table.ng-star-inserted')).filter(Boolean));
                     return events.map(el => el.innerText)
                 }
