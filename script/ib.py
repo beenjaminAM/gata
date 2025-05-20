@@ -61,7 +61,7 @@ def run():
                     }
                     const league = getElementByXpath('/html/body/app-root/obg-m-betting-layout-container/obg-m-sportsbook-layout-container/app-m-sidenav/mat-sidenav-container/mat-sidenav-content/div')
                     league.querySelector('.obg-scrollbar-content').scrollTop = league.querySelector('.obg-scrollbar-content').scrollHeight
-                    let events = Array.from(getElementByXpath('/html/body/app-root/obg-m-betting-layout-container/obg-m-sportsbook-layout-container/app-m-sidenav/mat-sidenav-container/mat-sidenav-content/div')?.querySelectorAll('obg-uiuplift-accordion > :not(div)') || []).map(el => Array.from(el.querySelectorAll('a.obg-event-row-details'))).flat(1).map(el => el.querySelector('.obg-event-scorecard-labels').innerText.concat(' ', el.querySelector('.obg-event-info-header .obg-event-status').innerText));
+                    let events = Array.from(league?.querySelectorAll('obg-uiuplift-accordion > :not(div)') || []).map(el => Array.from(el.querySelectorAll('a.obg-event-row-details'))).flat(1).map(el => el.querySelector('.obg-event-scorecard-labels').innerText.concat(' ', el.querySelector('.obg-event-info-header .obg-event-status').innerText));
                     return events;
                 }
             """)
