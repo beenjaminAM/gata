@@ -267,3 +267,31 @@ main {
         background-position: -180px 0;
     }
 }
+
+@property --avatarx {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 60px;
+}
+
+.world {
+    height: 73.33px;
+    width: 100%;
+    border: 1px solid red;
+    overflow: hidden; /*Prevents horizontal scrollbar*/
+}
+
+.steps {
+    width: var(--avatarx);
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: row-reverse;
+    animation: walking 7s linear infinite;
+    animation: walkx 12s linear infinite;
+}
+
+@keyframes walkx {
+    to {
+        --avatarx: calc(100vw + 60px);
+    }
+}
