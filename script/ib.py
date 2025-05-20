@@ -42,10 +42,6 @@ def run():
             }
         """)
 
-        print("items:")
-        for item in scroller_items:
-            print("-", item)
-
         try: 
             league = new_page.locator('xpath=//html/body/app-root/obg-m-betting-layout-container/obg-m-sportsbook-layout-container/app-m-sidenav/mat-sidenav-container/mat-sidenav-content/div')#iframe -> events
             new_page.wait_for_timeout(4000)
@@ -57,8 +53,7 @@ def run():
                     return Array.from(getElementByXpath('/html/body/app-root/obg-m-betting-layout-container/obg-m-sportsbook-layout-container/app-m-sidenav/mat-sidenav-container/mat-sidenav-content/div')?.querySelectorAll('obg-uiuplift-accordion > :not(div)') || []).map(el=>el?.querySelector('.obg-uiuplift-accordion-item-header')?.innerText?.trim().replace(/\\n/g, '') || null);
                 }
             """)
-            for date in dates:
-                print(date)
+            league.querySelector('.obg-scrollbar-content').scrollTop = league.querySelector('.obg-scrollbar-content').scrollHeight
             events = new_page.evaluate("""
                 () => {
                     function getElementByXpath(path) {
