@@ -76,6 +76,15 @@ def run(playwright: Playwright) -> None:
                     obj['visit'] = visit.innerText
                     obj['date'] = date.innerText
                     obj['category'] = category.innerText
+
+                    var elements = div.querySelectorAll('.OddBoxVariant2styled__OddBoxContent-sc-9pzo4l-2');         
+                    for (var j = 0; j < elements.length; j++) {
+                        var txt = elements[j].innerText;
+                        var item = txt.split('\\n');
+                        var key = item[1];
+                        var value = item[0];
+                        obj[key] = value;
+                    }
                     resultado.push(obj);
                 }   
                 return resultado;
@@ -85,7 +94,6 @@ def run(playwright: Playwright) -> None:
         
         #event_boxes.map(div -> div.innertText):list, [slip] for item in list = ['10/05 • 21:00', 'Liga 1 • Perú', 'Cienciano', 'FBC Melgar', '2.85', 'Cienciano', '3.20', 'Empate', '2.54', 'FBC Melgar', '1.94', 'Más de 2.5', '1.80', 'Menos de 2.5', '1.70', 'Sí', '2.05', 'No']
 
-        print(list_data)
 
     click_menu_in_page('Copa Libertadores')
 
