@@ -91,6 +91,10 @@ def run(playwright: Playwright) -> None:
             }
         """)
         print(list_data)
+
+        with open("matches.json", "w", encoding="utf-8") as f:
+            import json
+            json.dump(list_data, f, ensure_ascii=False, indent=4)
         
         #event_boxes.map(div -> div.innertText):list, [slip] for item in list = ['10/05 • 21:00', 'Liga 1 • Perú', 'Cienciano', 'FBC Melgar', '2.85', 'Cienciano', '3.20', 'Empate', '2.54', 'FBC Melgar', '1.94', 'Más de 2.5', '1.80', 'Menos de 2.5', '1.70', 'Sí', '2.05', 'No']
 
