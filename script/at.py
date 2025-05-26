@@ -67,42 +67,23 @@ def run(playwright: Playwright) -> None:
                 for (var i = 0; i < cajas.length; i++) {
                     var div = cajas[i];
                     var obj = { };
-                    obj['category'] = div.querySelector('.EventBoxstyled__CategoryChampionship-sc-ksk2ut-6').innerText
+                    var category = div.querySelector('.EventBoxstyled__CategoryChampionship-sc-ksk2ut-6')
+                    var date = div.querySelector('.EventBoxstyled__DateTime-sc-ksk2ut-8')
                     var competitors = Array.from(div.querySelectorAll('.EventBoxCompetitorsVariant0styled__CompetitorContainer-sc-nkyjoa-5')).slice(0, 2)
                     var home = competitors[0] || null;
                     var visit = competitors[1] || null;
                     obj['home'] = home.innerText
                     obj['visit'] = visit.innerText
+                    obj['date'] = date.innerText
+                    obj['category'] = category.innerText
                     resultado.push(obj);
                 }   
                 return resultado;
             }
         """)
         print(list_data)
-        #list_data = [[info.strip() for info in data.strip().split('\n')] for data in list_data]
-        #['10/05 • 21:00', 'Liga 1 • Perú', 'Cienciano', 'FBC Melgar', '2.85', 'Cienciano', '3.20', 'Empate', '2.54', 'FBC Melgar', '1.94', 'Más de 2.5', '1.80', 'Menos de 2.5', '1.70', 'Sí', '2.05', 'No']
-        events = [{
-            'date': data[0],
-            'competition': data[1],
-            'home_team': data[2],
-            'away_team': data[3],
-            'odds_1x2': {
-                data[5]: data[4],
-                data[7]: data[6],
-                data[9]: data[8]
-            },
-            'odds_over_under_2.5': {
-                data[11]: data[10],
-                data[13]: data[12]
-            },
-            'odds_both_score': {
-                data[15] if len(data) > 15 else 'Live': data[14] if len(data) > 14 else 'Live',
-                data[17] if len(data) > 17 else 'Live': data[16] if len(data) > 16 else 'Live'
-            }
-        } for data in []]
-
-        print(events)
-
+        
+        #event_boxes.map(div -> div.innertText):list, [slip] for item in list = ['10/05 • 21:00', 'Liga 1 • Perú', 'Cienciano', 'FBC Melgar', '2.85', 'Cienciano', '3.20', 'Empate', '2.54', 'FBC Melgar', '1.94', 'Más de 2.5', '1.80', 'Menos de 2.5', '1.70', 'Sí', '2.05', 'No']
 
         print(list_data)
 
