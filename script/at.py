@@ -66,12 +66,20 @@ def run(playwright: Playwright) -> None:
                 var cajas = event_boxes;
                 for (var i = 0; i < cajas.length; i++) {
                     var div = cajas[i];
-                    resultado.push(div.innerText);
+                    var obj = { };
+                    obj['category'] = div.querySelector('.EventBoxstyled__CategoryChampionship-sc-ksk2ut-6').innerText
+                    var competitors = Array.from(div.querySelectorAll('.EventBoxCompetitorsVariant0styled__CompetitorContainer-sc-nkyjoa-5')).slice(0, 2)
+                    var home = competitors[0] || null;
+                    var visit = competitors[1] || null;
+                    obj['home'] = home.innerText
+                    obj['visit'] = visit.innerText
+                    resultado.push(obj);
                 }   
                 return resultado;
             }
         """)
-        list_data = [[info.strip() for info in data.strip().split('\n')] for data in list_data]
+        print(list_data)
+        #list_data = [[info.strip() for info in data.strip().split('\n')] for data in list_data]
         #['10/05 • 21:00', 'Liga 1 • Perú', 'Cienciano', 'FBC Melgar', '2.85', 'Cienciano', '3.20', 'Empate', '2.54', 'FBC Melgar', '1.94', 'Más de 2.5', '1.80', 'Menos de 2.5', '1.70', 'Sí', '2.05', 'No']
         events = [{
             'date': data[0],
@@ -91,7 +99,7 @@ def run(playwright: Playwright) -> None:
                 data[15] if len(data) > 15 else 'Live': data[14] if len(data) > 14 else 'Live',
                 data[17] if len(data) > 17 else 'Live': data[16] if len(data) > 16 else 'Live'
             }
-        } for data in list_data]
+        } for data in []]
 
         print(events)
 
