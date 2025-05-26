@@ -62,7 +62,13 @@ def run(playwright: Playwright) -> None:
                 const content = shadowRoot.childNodes[0];
 
                 const event_boxes = content.querySelectorAll('div.EventBoxstyled__EventBoxContainerBase-sc-ksk2ut-33.EventBoxVariant0styled__EventBoxContainer-sc-32j3jk-0.cKTlxT.hsDHkP');
-                return Array.from(event_boxes).map(div => div.innerText);
+                var resultado = [];
+                var cajas = event_boxes;
+                for (var i = 0; i < cajas.length; i++) {
+                    var div = cajas[i];
+                    resultado.push(div.innerText);
+                }   
+                return resultado;
             }
         """)
         list_data = [[info.strip() for info in data.strip().split('\n')] for data in list_data]
@@ -92,7 +98,7 @@ def run(playwright: Playwright) -> None:
 
         print(list_data)
 
-    click_menu_in_page('Liga 1')
+    click_menu_in_page('Copa Libertadores')
 
     events_data_in_page()
 
