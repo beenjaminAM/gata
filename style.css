@@ -254,7 +254,12 @@ main {
     align-items: center;
 }
 
+footer {
+    --horientaion: 180deg;
+}
+
 .box {
+    transform: rotateY(var(--horientaion));
     height: 73.33px;
     width: 60px;
     background-image: url('walk.jpg');
