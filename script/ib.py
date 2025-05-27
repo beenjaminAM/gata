@@ -36,12 +36,13 @@ def run():
             """container => Array.from(container.children).map(el => el.innerText.trim())"""
         )
 
-        new_page.evaluate("""
-            ()=> {
-                Array.from(document.querySelector('.obg-scroller .obg-scroller-container .obg-scroller-content').children).find(el=>el.innerText.toLowerCase().includes('liga 1')).click()
-            }
-        """)
-
+        def select_league(new_page, league):
+            new_page.evaluate("""
+                (league)=> {
+                    Array.from(document.querySelector('.obg-scroller .obg-scroller-container .obg-scroller-content').children).find(el=>el.innerText.toLowerCase().includes(league)).click()
+                }
+            """, arg=league)
+        select_league(new_page, 'libertadores')
         try: 
             league = new_page.locator('xpath=//html/body/app-root/obg-m-betting-layout-container/obg-m-sportsbook-layout-container/app-m-sidenav/mat-sidenav-container/mat-sidenav-content/div')#iframe -> events
             new_page.wait_for_timeout(4000)
