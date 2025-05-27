@@ -31,9 +31,9 @@ def run():
 
         new_page.wait_for_selector(".obg-scroller .obg-scroller-container .obg-scroller-content")
 
-        scroller_items = new_page.eval_on_selector_all(
-            ".obg-scroller .obg-scroller-container .obg-scroller-content > *",
-            "elements => elements.map(el => el.innerText.trim())"
+        scroller_items = new_page.eval_on_selector(
+            ".obg-scroller .obg-scroller-container .obg-scroller-content",
+            """container => Array.from(container.children).map(el => el.innerText.trim())"""
         )
 
         new_page.evaluate("""

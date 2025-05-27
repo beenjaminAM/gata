@@ -20,16 +20,6 @@ def run(playwright: Playwright) -> None:
     
     page.wait_for_selector("#altenar-wrapper__sportbook")
 
-    # Wait until shadow DOM is fully ready
-    # page.wait_for_function("""
-    #     () => {
-    #         const host = document.querySelector('#altenar-wrapper__sportbook');
-    #         if (!host || !host.childNodes.length) return false;
-    #         const shadowRoot = host.childNodes[0].shadowRoot;
-    #         if (!shadowRoot || !shadowRoot.childNodes.length) return false;
-    #         return true;
-    #     }
-    # """)
     wait_for_shadow_dom_ready(page)
 
     def click_menu_in_page(league):
