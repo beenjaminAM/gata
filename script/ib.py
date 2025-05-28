@@ -39,7 +39,8 @@ def run():
         def select_league(new_page, league):
             new_page.evaluate("""
                 (league)=> {
-                    Array.from(document.querySelector('.obg-scroller .obg-scroller-container .obg-scroller-content').children).find(el=>el.innerText.toLowerCase().includes(league)).click()
+                    let result = Array.from(document.querySelector('.obg-scroller .obg-scroller-container .obg-scroller-content').children).find(el=>el.innerText.toLowerCase().includes(league))
+                    if (result) result.click()
                 }
             """, arg=league)
         select_league(new_page, 'libertadores')
