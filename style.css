@@ -21,6 +21,8 @@ button {
     --white-100: #ffffff;   
     --white-200: #f5f5f5;   
     --white-300: #949292;   
+
+    --card-dark-bg: #1b1d21;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -202,7 +204,7 @@ main {
 
 .code {
     white-space: pre; /*line breaks*/
-    background: #111;
+    background: var(--card-dark-bg);
     color: #0f0;
     border-radius: 6px;
     font-family: monospace;
