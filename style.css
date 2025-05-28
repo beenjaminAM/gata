@@ -255,7 +255,7 @@ main {
 }
 
 footer {
-    --horientaion: 180deg;
+    --horientaion: 0deg;
 }
 
 .box {
@@ -296,11 +296,18 @@ footer {
     display: flex;
     flex-direction: row-reverse;
     animation: walking 7s linear infinite;
-    animation: walkx 12s linear infinite;
+    animation: walkx 24s linear infinite;
 }
 
 @keyframes walkx {
-    to {
+    0% {
+        --avatarx: 60px;
+    }
+    50% {
         --avatarx: calc(100vw + 60px);
+    }
+    100% {
+        --avatarx:60px;
+        --horientaion: 180deg;
     }
 }
