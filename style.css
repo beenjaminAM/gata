@@ -59,10 +59,6 @@ main {
     flex-direction: column;
     justify-content: space-between;
 }
-.header__title {
-    border-radius: 5px;
-    position: relative;
-}
 
 @property --angle {
     syntax: "<angle>";
@@ -97,6 +93,10 @@ main {
 
 /* || BLOCKS */
 /* aka components */
+.coolborder {
+    position: relative;
+    z-index: 1;
+}
 
 .btn {
     width: 100px;
@@ -107,6 +107,8 @@ main {
 /* || ELEMENTS */
 
 .header__title {
+    border-radius: 5px;
+    position: relative;
     font-size: 2rem;
 }
 
