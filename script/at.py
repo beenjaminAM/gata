@@ -1,15 +1,18 @@
-from playwright.sync_api import Playwright, sync_playwright
+from playwright.sync_api import Playwright, sync_playwright, TimeoutError as PlaywrightTimeoutError
 
 def wait_for_shadow_dom_ready(page):
-    page.wait_for_function("""
-        () => {
-            const host = document.querySelector('#altenar-wrapper__sportbook');
-            if (!host || !host.childNodes.length) return false;
-            const shadowRoot = host.childNodes[0].shadowRoot;
-            if (!shadowRoot || !shadowRoot.childNodes.length) return false;
-            return true;
-        }
-    """)
+    try:
+        page.wait_for_function("""
+            () => {
+                const host = document.querySelector('#altenar-wrapper__sportbook');
+                if (!host || !host.childNodes.length) return false;
+                const shadowRoot = host.childNodes[0].shadowRoot;
+                if (!shadowRoot || !shadowRoot.childNodes.length) return false;
+                return true;
+            }
+        """)
+    except PlaywrightTimeoutError:
+        raise Exception('Waiting took too long')
 
 def run(playwright: Playwright) -> None:
     browser = playwright.chromium.launch(headless=True)
