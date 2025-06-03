@@ -361,9 +361,7 @@ main {
     align-items: center;
 }
 
-footer {
-    --horientaion: 0deg;
-}
+
 
 .box {
     transform: rotateY(var(--horientaion));
@@ -390,11 +388,12 @@ footer {
     initial-value: 60px;
 }
 
-.world {
+.game-world {
+    --horientaion: 0deg;
     height: 73.33px;
     width: 100%;
     border: 1px solid red;
-    overflow: hidden; /*Prevents horizontal scrollbar*/
+    overflow: hidden; /*Prevents horizontal scrollbar  --avatar-flip --horientation*/
 }
 
 .steps {
