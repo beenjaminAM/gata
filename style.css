@@ -159,6 +159,13 @@ main {
     font-size: 2rem;
 }
 
+.header__line {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .header__nav {
     display: inline;
 }
