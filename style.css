@@ -100,6 +100,34 @@ main {
     z-index: 1;
 }
 
+.gradient-border {
+    border-radius: 5px;
+    position: relative;
+    display: block;
+    background-color: var(--black-100);
+}
+
+.gradient-border::before,
+.gradient-border::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: conic-gradient(from var(--angle), #ea2dd8, #001bf1,#ea2dd8 );
+    padding: 2.5px;
+    z-index: -1;
+    animation: autoRotate 2s linear infinite;
+    /* box-sizing: unset; */
+}
+
+.gradient-border::after {
+    filter: blur(50px);
+}
+
 .btn {
     width: 100px;
     height: 40px;
@@ -152,6 +180,14 @@ main {
 }
 
 /* || ELEMENTS */
+
+.header__brand {
+    font-size: 2rem;
+    padding: 0 1rem 0;
+    text-decoration: none;
+    color: var(--white-200);
+    font-weight: bold;
+}
 
 .header__title {
     border-radius: 5px;
