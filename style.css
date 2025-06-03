@@ -48,9 +48,6 @@ body {
 header {
     border-bottom: 1px solid hsl(215, 15%, 92%);;
     padding: 1vh 4vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: var(--black-100);
     z-index: -1;
 }
