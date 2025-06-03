@@ -370,10 +370,10 @@ main {
     background-image: url('walk.jpg');
     background-position: 0 0;
     background-size: 180px 73.33px;
-    animation: walkCycle 0.3s steps(3) infinite;
+    animation: avatar-walk-cycle 0.3s steps(3) infinite;
 }
 
-@keyframes walkCycle {
+@keyframes avatar-walk-cycle {
     from {
         background-position: 0 0;
     }
