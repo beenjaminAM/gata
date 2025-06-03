@@ -106,6 +106,51 @@ main {
     border-radius: 15px;
 }
 
+.button-menu {
+    display: grid;
+    place-content: center;
+    background-color: transparent;
+    font-size: 2.5rem;
+    height: 1em;
+    width: 1em;
+    padding: 0;
+    border: none;
+    z-index: 100;
+}
+
+.button-menu:hover {
+    transform: rotateZ(720deg);
+    transition-property: transform;
+    transition-duration: 0.6s;
+    transition-timing-function: ease-in;
+}
+
+.menu-icon {
+    width: 1em;
+    height: 0.15em;
+    border-radius: .1em;
+    background-color: var(--white-200);
+    position: relative;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+    content: '';
+    position: absolute;
+    width: 1em;
+    height: 0.15em;
+    border-radius: .1em;
+    background-color: var(--white-200);
+}
+.menu-icon::before {
+    left: 0;
+    top: -0.31em;
+}
+.menu-icon::after {
+    left: 0;
+    top: 0.31em;
+}
+
 /* || ELEMENTS */
 
 .header__title {
