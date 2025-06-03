@@ -49,7 +49,7 @@ header {
     border-bottom: 1px solid hsl(215, 15%, 92%);;
     padding: 1vh 4vw;
     background-color: var(--black-100);
-    z-index: -1;
+    z-index: 0;    
 }
 
 main {
@@ -116,7 +116,7 @@ main {
     transform: translate(-50%, -50%);
     background-image: conic-gradient(from var(--angle), #ea2dd8, #001bf1,#ea2dd8 );
     padding: 2.5px;
-    z-index: -1;
+    z-index: -2;
     animation: autoRotate 2s linear infinite;
     /* box-sizing: unset; */
 }
