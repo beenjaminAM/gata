@@ -151,28 +151,27 @@ main {
 }
 
 .menu-icon {
+    position: relative;
+}
+
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
     width: 1em;
     height: 0.15em;
     border-radius: .1em;
     background-color: var(--white-200);
-    position: relative;
 }
-
 .menu-icon::before,
 .menu-icon::after {
     content: '';
     position: absolute;
-    width: 1em;
-    height: 0.15em;
-    border-radius: .1em;
-    background-color: var(--white-200);
+    left: 0;
 }
 .menu-icon::before {
-    left: 0;
     top: -0.31em;
 }
 .menu-icon::after {
-    left: 0;
     top: 0.31em;
 }
 
