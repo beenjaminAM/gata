@@ -32,7 +32,8 @@ def run(playwright: Playwright) -> None:
                 const content = document.querySelector('#altenar-wrapper__sportbook').childNodes[0].shadowRoot.childNodes[0];
                 if (!content) return false;
 
-                const boxes = content.querySelectorAll('div.TopLeaguesstyled__TopLeagueBox-sc-1okpmvu-5.dxQYeD');
+                //const boxes = content.querySelectorAll('div.TopLeaguesstyled__TopLeagueBox-sc-1okpmvu-5.dxQYeD');
+                const boxes = content.querySelectorAll('.TopLeaguesstyled__TopLeagueName-sc-1okpmvu-6');
                 if (!boxes.length) return false;
 
                 const target = Array.from(boxes).find(div => div.innerText.includes(league));
@@ -102,7 +103,7 @@ def run(playwright: Playwright) -> None:
         #event_boxes.map(div -> div.innertText):list, [slip] for item in list = ['10/05 • 21:00', 'Liga 1 • Perú', 'Cienciano', 'FBC Melgar', '2.85', 'Cienciano', '3.20', 'Empate', '2.54', 'FBC Melgar', '1.94', 'Más de 2.5', '1.80', 'Menos de 2.5', '1.70', 'Sí', '2.05', 'No']
 
 
-    click_menu_in_page('Copa Libertadores')
+    click_menu_in_page('Brasileirao')
 
     events_data_in_page()
 
