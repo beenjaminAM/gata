@@ -67,7 +67,7 @@ def run(playwright: Playwright) -> None:
                 const content = shadowRoot.childNodes[0];
 
                 const event_boxes = content.querySelectorAll('div.EventBoxstyled__EventBoxContainerBase-sc-ksk2ut-33.EventBoxVariant0styled__EventBoxContainer-sc-32j3jk-0.cKTlxT.hsDHkP');
-                var resultado = [];
+                var result = [];
                 var cajas = event_boxes;
                 for (var i = 0; i < cajas.length; i++) {
                     var div = cajas[i];
@@ -83,16 +83,14 @@ def run(playwright: Playwright) -> None:
                     obj['category'] = category.innerText
 
                     var elements = div.querySelectorAll('.OddBoxVariant2styled__OddBoxContent-sc-9pzo4l-2');         
-                    for (var j = 0; j < elements.length; j++) {
-                        var txt = elements[j].innerText;
-                        var item = txt.split('\\n');
-                        var key = item[1];
-                        var value = item[0];
-                        obj[key] = value;
-                    }
-                    resultado.push(obj);
+                    Array.from(elements).reduce((acc,item) => {
+                        const [value, key] = item.innerText.split('\\n')
+                        acc[key] = value
+                        return acc
+                    }, obj)
+                    result.push(obj);
                 }   
-                return resultado;
+                return result;
             }
         """)
         print(list_data)
