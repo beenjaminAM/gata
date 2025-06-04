@@ -362,7 +362,7 @@ main {
 
 
 
-.box {
+.avatar-sprite {
     transform: rotateY(var(--horientaion));
     height: 73.33px;
     width: 60px;
