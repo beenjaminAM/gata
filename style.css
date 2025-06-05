@@ -164,14 +164,29 @@ main {
 
 
 .header__line {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr auto; /* first column fills available space, second column fits content */
+    grid-template-rows: auto auto;
+    gap: 0;
+}
+
+.header__line > :nth-child(1) {
+    grid-row: 1;
+    grid-column: 1;
+    /* will take all remaining width */
+}
+.header__line > :nth-child(2) {
+    grid-row: 1;
+    grid-column: 2;
+    /* width auto by grid, fits content */
+}
+.header__line > :nth-child(3) {
+    grid-row: 2;
+    grid-column: 1 / span 2; /* span both 2 columns for full width */
 }
 
 .header__nav {
-    display: inline;
+    display: none;
 }
 
 .header__title a {
