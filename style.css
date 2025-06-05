@@ -151,6 +151,12 @@ main {
     transition-timing-function: ease-in;
 }
 
+:is(.button-menu:hover, .button-menu:focus-within) + .header__nav {
+    display: block;
+}
+
+
+
 /* || ELEMENTS */
 
 .header__brand {
