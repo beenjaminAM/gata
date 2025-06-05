@@ -368,24 +368,23 @@ main {
     overflow: hidden; /*Prevents horizontal scrollbar  --avatar-flip --horientation*/
 }
 
-.steps {
-    width: var(--avatarx);
+.avatar-wrapper {
+    width: var(--avatar-offset);
     border: 1px solid blue;
     display: flex;
     flex-direction: row-reverse;
-    animation: walking 7s linear infinite;
-    animation: walkx 24s linear infinite;
+    animation: avatar-move-x 24s linear infinite;
 }
 
-@keyframes walkx {
+@keyframes avatar-move-x {
     0% {
-        --avatarx: 60px;
+        --avatar-offset: 60px;
     }
     50% {
-        --avatarx: calc(100vw + 60px);
+        --avatar-offset: calc(100vw + 60px);
     }
     100% {
-        --avatarx:60px;
+        --avatar-offset:60px;
         --horientaion: 180deg;
     }
 }
