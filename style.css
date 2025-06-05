@@ -118,12 +118,6 @@ main {
     z-index: 100;
 }
 
-.button-menu:hover {
-    transform: rotateZ(720deg);
-    transition-property: transform;
-    transition-duration: 0.6s;
-    transition-timing-function: ease-in;
-}
 
 .menu-icon {
     position: relative;
@@ -148,6 +142,13 @@ main {
 }
 .menu-icon::after {
     top: 0.31em;
+}
+
+:is(.button-menu:hover, .button-menu:focus-within) {
+    transform: rotateZ(720deg);
+    transition-property: transform;
+    transition-duration: 0.6s;
+    transition-timing-function: ease-in;
 }
 
 /* || ELEMENTS */
