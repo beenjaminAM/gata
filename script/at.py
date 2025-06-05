@@ -75,16 +75,14 @@ def run(playwright: Playwright) -> None:
                     var obj = { };
                     var category = div.querySelector('.EventBoxstyled__CategoryChampionship-sc-ksk2ut-6')
                     var date = div.querySelector('.EventBoxstyled__DateTime-sc-ksk2ut-8')
-                    var competitors = Array.from(div.querySelectorAll('.EventBoxCompetitorsVariant0styled__CompetitorContainer-sc-nkyjoa-5')).slice(0, 2)
-                    var home = competitors[0] || null;
-                    var visit = competitors[1] || null;
+                    const [home, visit] = Array.from(div.querySelectorAll('.EventBoxCompetitorsVariant0styled__CompetitorContainer-sc-nkyjoa-5')).slice(0, 2);
                     obj['home'] = home.innerText
                     obj['visit'] = visit.innerText
                     obj['date'] = date.innerText
                     obj['category'] = category.innerText
 
-                    var elements = div.querySelectorAll('.OddBoxVariant2styled__OddBoxContent-sc-9pzo4l-2');         
-                    Array.from(elements).reduce((acc,item) => {
+                    var raw = div.querySelectorAll('.OddBoxVariant2styled__OddBoxContent-sc-9pzo4l-2');        
+                    Array.from(raw).reduce((acc,item) => {
                         const [value, key] = item.innerText.split('\\n')
                         acc[key] = value
                         return acc
