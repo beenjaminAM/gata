@@ -198,6 +198,7 @@ main {
 
 .header__nav {
     display: none;
+    margin-top: 1rem;
 }
 
 .header__title a {
@@ -213,11 +214,17 @@ main {
 
 .header__nav ul {
     list-style: none;
+    display: flex;
+    flex-flow: column nowrap;
 }
 
 .header__nav li{
-    display: inline-block;
-    margin-inline: 0.5rem;
+    border-top: 1px solid var(--white-200);
+    width: 100%;
+    display: block;
+    padding: 1rem 1rem;
+    text-align: center;
+    font-weight: bold;
 }
 
 .header__nav li:nth-child(1):after {
