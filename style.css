@@ -176,7 +176,7 @@ main {
 
 .header__line {
     display: grid;
-    grid-template-columns: 1fr auto; /* first column fills available space, second column fits content */
+    grid-template-columns: 1fr auto auto; /* first column fills available space, second and third column fits content */
     grid-template-rows: auto auto;
     gap: 0;
 }
@@ -198,7 +198,7 @@ main {
 }
 .header__line > :nth-child(4) {
     grid-row: 2;
-    grid-column: 1 / span 2; /* span both 2 columns for full width */
+    grid-column: 1 / span 3; /* span both 3 columns for full width */
 }
 
 .header__nav {
