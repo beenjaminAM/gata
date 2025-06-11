@@ -227,6 +227,13 @@ main {
     font-weight: bold;
 }
 
+.header__nav li::after {
+  display: inline-block;  
+  transition: all 0.3s ease;
+  transform: scale(1);   
+  color: inherit;        
+}
+
 .header__nav li:nth-child(1):after {
     content: 'Youtube';
 }
@@ -288,6 +295,16 @@ main {
 .main__section article:nth-of-type(2) > :nth-child(5)::after {
     content: 'python .\\at.py';
     white-space: pre-wrap;
+}
+
+.header__nav li {
+    color: whitesmoke;
+    z-index: 100;
+}
+
+.header__nav li:hover::after {
+    color: var(--white-100);
+    transform: scale(1.2);
 }
 
 /* || MODIFIERS */
