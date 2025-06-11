@@ -370,7 +370,7 @@ main {
 
 
 .avatar-sprite {
-    transform: rotateY(var(--horientaion));
+    transform: rotateY(var(--horientation));
     height: 73.33px;
     width: 60px;
     background-image: url('walk.jpg');
@@ -388,14 +388,14 @@ main {
     }
 }
 
-@property --avatarx {
+@property --avatar-offset {
     syntax: "<length>";
     inherits: true;
     initial-value: 60px;
 }
 
 .game-world {
-    --horientaion: 0deg;
+    --horientation: 0deg;
     height: 73.33px;
     width: 100%;
     border: 1px solid red;
@@ -419,6 +419,6 @@ main {
     }
     100% {
         --avatar-offset:60px;
-        --horientaion: 180deg;
+        --horientation: 180deg;
     }
 }
