@@ -105,6 +105,9 @@ main {
     filter: blur(50px);
 }
 
+.sidebar-btn {
+  position: absolute;
+}
 
 .button-menu {
     display: grid;
@@ -121,6 +124,7 @@ main {
 
 .menu-icon {
     position: relative;
+    transition: transform 0.5s ease;
 }
 
 .menu-icon,
@@ -143,12 +147,24 @@ main {
 .menu-icon::after {
     top: 0.31em;
 }
+:is(.sidebar-btn:checked) ~ .header__nav {
+    display: block;
+}
+:is(.sidebar-btn:checked) + .button-menu .menu-icon{
+    height: 0;
+}
+:is(.sidebar-btn:checked) + .button-menu .menu-icon::before{
+    transform: translate(0, 0.31em) rotateZ(45deg);
+}
+:is(.sidebar-btn:checked) + .button-menu .menu-icon::after{
+    transform: translate(0, -0.31em) rotateZ(-45deg);
+}
 
-
-:is(.button-menu:hover, .button-menu:focus-within) .menu-icon{
+/*:is(.button-menu:hover, .button-menu:focus-within) .menu-icon{
     transform: rotateZ(720deg);
     height: 0;
 }
+/*
 :is(.button-menu:hover, .button-menu:focus-within) .menu-icon::before{
     transform: translate(0, 0.31em) rotateZ(45deg);
 }
