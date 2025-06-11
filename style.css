@@ -192,6 +192,11 @@ main {
     /* width auto by grid, fits content */
 }
 .header__line > :nth-child(3) {
+    grid-row: 1;
+    grid-column: 3;
+    /* width auto by grid, fits content */
+}
+.header__line > :nth-child(4) {
     grid-row: 2;
     grid-column: 1 / span 2; /* span both 2 columns for full width */
 }
