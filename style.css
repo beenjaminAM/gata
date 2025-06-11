@@ -225,10 +225,10 @@ main {
 }
 
 .header__nav li::after {
-  display: inline-block;  
+  display: inline-block;  /*Required for transform to work */
   transition: all 0.3s ease;
-  transform: scale(1);   
-  color: inherit;        
+  transform: scale(1);   /* Ensure base scale is set */
+  color: inherit;        /* So it inherits the initial color */
 }
 
 .header__nav li:nth-child(1):after {
