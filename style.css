@@ -201,14 +201,6 @@ main {
     margin-top: 1rem;
 }
 
-.header__title a {
-    padding: 0 1rem 0;
-    background-color: #111;
-    z-index: 1;
-    border-radius: inherit;
-    text-decoration: none;
-    color: white;
-}
 
 
 
