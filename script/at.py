@@ -12,7 +12,7 @@ def wait_for_shadow_dom_ready(page):
             }
         """)
     except PlaywrightTimeoutError:
-        raise Exception('Waiting took too long')
+        raise Exception('Waiting for shadow dom took too long')
 
 def inspect_shadow_dom_content(page):
         test = page.evaluate("""
