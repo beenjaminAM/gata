@@ -170,11 +170,7 @@ main {
 }
 :is(.button-menu:hover, .button-menu:focus-within) .menu-icon::after{
     transform: translate(0, -0.31em) rotateZ(-45deg);
-}
 
-:is(.button-menu:hover, .button-menu:focus-within) + .header__nav {
-    display: block;
-}
 
 
 
