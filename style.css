@@ -160,10 +160,6 @@ main {
     transform: translate(0, -0.31em) rotateZ(-45deg);
 }
 
-/*:is(.button-menu:hover, .button-menu:focus-within) .menu-icon{
-    transform: rotateZ(720deg);
-    height: 0;
-}
 /*
 :is(.button-menu:hover, .button-menu:focus-within) .menu-icon::before{
     transform: translate(0, 0.31em) rotateZ(45deg);
