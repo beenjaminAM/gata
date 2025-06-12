@@ -40,25 +40,28 @@ def run(playwright: Playwright) -> None:
     wait_for_shadow_dom_ready(page)
 
     def click_menu_in_page(league):
-        page.wait_for_function("""
-            (league) => {
+        try:
+            page.wait_for_function("""
+                (league) => {
 
-                const content = document.querySelector('#altenar-wrapper__sportbook').childNodes[0].shadowRoot.childNodes[0];
-                if (!content) return false;
+                    const content = document.querySelector('#altenar-wrapper__sportbook').childNodes[0].shadowRoot.childNodes[0];
+                    if (!content) return false;
 
-                //const boxes = content.querySelectorAll('div.TopLeaguesstyled__TopLeagueBox-sc-1okpmvu-5.dxQYeD');
-                const boxes = content.querySelectorAll('.TopLeaguesstyled__TopLeagueName-sc-1okpmvu-6');
-                if (!boxes.length) return false;
+                    //const boxes = content.querySelectorAll('div.TopLeaguesstyled__TopLeagueBox-sc-1okpmvu-5.dxQYeD');
+                    const boxes = content.querySelectorAll('.TopLeaguesstyled__TopLeagueName-sc-1okpmvu-6');
+                    if (!boxes.length) return false;
 
-                const target = Array.from(boxes).find(div => div.innerText.includes(league));
-                if (target) {
-                    target.click();
-                    return true;
+                    const target = Array.from(boxes).find(div => div.innerText.includes(league));
+                    if (target) {
+                        target.click();
+                        return true;
+                    }
+
+                    return false;
                 }
-
-                return false;
-            }
-        """, arg=league)
+            """, arg=league)
+        except PlaywrightTimeoutError:
+            raise Exception(f"Could not find or click on the league named '{league}'")
     
     def events_data_in_page():
         page.wait_for_function("""
