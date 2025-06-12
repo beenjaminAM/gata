@@ -68,28 +68,21 @@ def run(playwright: Playwright) -> None:
                 const content = shadowRoot.childNodes[0];
 
                 const event_boxes = content.querySelectorAll('div.EventBoxstyled__EventBoxContainerBase-sc-ksk2ut-33.EventBoxVariant0styled__EventBoxContainer-sc-32j3jk-0.cKTlxT.hsDHkP');
-                var result = [];
-                var cajas = event_boxes;
-                for (var i = 0; i < cajas.length; i++) {
-                    var div = cajas[i];
-                    var obj = { };
-                    var category = div.querySelector('.EventBoxstyled__CategoryChampionship-sc-ksk2ut-6')
-                    var date = div.querySelector('.EventBoxstyled__DateTime-sc-ksk2ut-8')
-                    const [home, visit] = Array.from(div.querySelectorAll('.EventBoxCompetitorsVariant0styled__CompetitorContainer-sc-nkyjoa-5')).slice(0, 2);
-                    obj['home'] = home.innerText
-                    obj['visit'] = visit.innerText
-                    obj['date'] = date.innerText
-                    obj['category'] = category.innerText
-
-                    var raw = div.querySelectorAll('.OddBoxVariant2styled__OddBoxContent-sc-9pzo4l-2');        
-                    Array.from(raw).reduce((acc,item) => {
+                
+                return Array.from(event_boxes).map(div => {
+                    const [home, visit] = Array.from(div.querySelectorAll('.EventBoxCompetitorsVariant0styled__CompetitorContainer-sc-nkyjoa-5')).slice(0, 2)
+                    const date = div.querySelector('.EventBoxstyled__DateTime-sc-ksk2ut-8')
+                    const raw = Array.from(div.querySelectorAll('.OddBoxVariant2styled__OddBoxContent-sc-9pzo4l-2'))
+                    const values = raw.reduce((acc,item) => {
                         const [value, key] = item.innerText.split('\\n')
                         acc[key] = value
                         return acc
-                    }, obj)
-                    result.push(obj);
-                }   
-                return result;
+                    }, { })
+                    values['date'] = date.innerText
+                    values['home'] = home.innerText
+                    values['visit'] = visit.innerText
+                    return values
+                }) 
             }
         """)
         print(list_data)
