@@ -14,6 +14,20 @@ def wait_for_shadow_dom_ready(page):
     except PlaywrightTimeoutError:
         raise Exception('Waiting took too long')
 
+def inspect_shadow_dom_content(page):
+        test = page.evaluate("""
+            () => {
+                let test  = []
+                const content = document.querySelector('#altenar-wrapper__sportbook').childNodes[0].shadowRoot.childNodes[0];
+                if (content) test.push('content');
+                //const boxes = content.querySelectorAll('div.TopLeaguesstyled__TopLeagueBox-sc-1okpmvu-5.dxQYeD')
+                const boxes = content.querySelectorAll('div.TopLeaguesstyled__TopLeagueBox-sc-1okpmvu-5.bGLWSD');
+                if (boxes.length) test.push('leagues');
+                return test;
+            }
+        """)
+        print(test)
+
 def run(playwright: Playwright) -> None:
     browser = playwright.chromium.launch(headless=True)
     context = browser.new_context(storage_state=None)
