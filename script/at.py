@@ -72,6 +72,7 @@ def run(playwright: Playwright) -> None:
                 return Array.from(event_boxes).map(div => {
                     const [home, visit] = Array.from(div.querySelectorAll('.EventBoxCompetitorsVariant0styled__CompetitorContainer-sc-nkyjoa-5')).slice(0, 2)
                     const date = div.querySelector('.EventBoxstyled__DateTime-sc-ksk2ut-8')
+                    const category = div.querySelector('.EventBoxstyled__CategoryChampionship-sc-ksk2ut-6')
                     const raw = Array.from(div.querySelectorAll('.OddBoxVariant2styled__OddBoxContent-sc-9pzo4l-2'))
                     const values = raw.reduce((acc,item) => {
                         const [value, key] = item.innerText.split('\\n')
@@ -79,6 +80,7 @@ def run(playwright: Playwright) -> None:
                         return acc
                     }, { })
                     values['date'] = date.innerText
+                    values['category'] = category.innerText
                     values['home'] = home.innerText
                     values['visit'] = visit.innerText
                     return values
