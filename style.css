@@ -298,6 +298,10 @@ main {
     content: 'python -m venv env\A.\\venv\\Scripts\\activate\Apip install -r requirements.txt\Aplaywright install chromium';
     white-space: pre-wrap;
 }
+.main__section article:nth-of-type(2) > :nth-child(4)::after {
+    content: 'python -m venv env. Initialize the venv to isolate Python packages locally. \A\A \\venv\\Scripts\\activate Activate the virtual environment to use the isolated packages. \A\Apip install -r requirements.txt Install all packages listed in requirements.txt. \A\Aplaywright install chromium Install the Chromium browser driver to run Playwright.';
+    white-space: pre-wrap;
+}
 .main__section article:nth-of-type(2) > :nth-child(5)::after {
     content: 'python .\\at.py';
     white-space: pre-wrap;
