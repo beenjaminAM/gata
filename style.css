@@ -107,6 +107,7 @@ main {
 
 .sidebar-btn {
   position: absolute;
+ clip: rect(0, 0, 0, 0); /* Visually hides the checkbox */
 }
 
 .button-menu {
