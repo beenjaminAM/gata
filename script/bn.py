@@ -40,7 +40,10 @@ def run(playwright: Playwright):
     list_data = page.evaluate("""
             () => {
                 const rawMatches = document.querySelectorAll("[data-qa^='match_day_'] > div > div");
-                return Array.from(rawMatches).length
+                const rawFields = Array.from(rawMatches[0].firstElementChild?.querySelectorAll(":scope > div:not(.v-popper--theme-dropdown)")).slice(0,3); 
+                const event_date = rawFields[0].innerText.trim().replace('\\n', ' ');
+                              
+                return event_date
             }
         """)
     print(list_data)
