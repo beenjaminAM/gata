@@ -1,4 +1,5 @@
-from playwright.sync_api import Playwright, sync_playwright
+from playwright.sync_api import Playwright
+from patchright.sync_api import sync_playwright
 import os
 
 def run(playwright: Playwright):
@@ -6,7 +7,7 @@ def run(playwright: Playwright):
     
     auth_dir = os.path.join(os.getcwd(), 'playwright', '.auth')
     os.makedirs(auth_dir, exist_ok=True)
-    state_path = os.path.join(auth_dir, "state_bn.json")
+    state_path = os.path.join(auth_dir, "state_testing1.json")
 
     # Check if auth state already exists
     if os.path.exists(state_path):
