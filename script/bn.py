@@ -42,7 +42,7 @@ def run(playwright: Playwright):
                 const rawMatches = document.querySelectorAll("[data-qa^='match_day_'] > div > div");
                 const rawFields = Array.from(rawMatches[0].firstElementChild?.querySelectorAll(":scope > div:not(.v-popper--theme-dropdown)")).slice(0,3); 
                 const event_date = rawFields[0].innerText.trim().replace('\\n', ' ');
-                              
+                const event_date = rawFields[1].innerText.split('\n').slice(0,2)
                 return event_date
             }
         """)
