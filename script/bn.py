@@ -37,6 +37,13 @@ def run(playwright: Playwright):
         }
     """)
     print(leagues)
+    list_data = page.evaluate("""
+            () => {
+                const rawMatches = document.querySelectorAll("[data-qa^='match_day_'] > div > div");
+                return Array.from(rawMatches).length
+            }
+        """)
+    print(list_data)
 
     page.wait_for_timeout(15000)
     context.close()
