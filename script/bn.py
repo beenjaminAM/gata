@@ -3,7 +3,7 @@ from patchright.sync_api import sync_playwright
 import os
 
 def run(playwright: Playwright):
-    browser = playwright.chromium.launch(headless=False)
+    browser = playwright.chromium.launch(headless=False, args=["--start-maximized"])
     
     auth_dir = os.path.join(os.getcwd(), 'playwright', '.auth')
     os.makedirs(auth_dir, exist_ok=True)
@@ -11,10 +11,10 @@ def run(playwright: Playwright):
 
     # Check if auth state already exists
     if os.path.exists(state_path):
-        context = browser.new_context(storage_state=state_path)
+        context = browser.new_context(storage_state=state_path, no_viewport=True)
     else:
         context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
-        page = context.new_page()
+        page = context.new_page(no_viewport=True)
         page.goto("https://www.betano.pe/sport/futbol/")
         input("Complete the walkthrough and accept cookies, then press Enter...")
         context.storage_state(path=state_path)
