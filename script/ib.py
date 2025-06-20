@@ -45,7 +45,7 @@ def run():
                 }
             """, arg=league)
             if not found:
-                raise Exception('Legue not Found')
+                raise Exception('League not Found')
             
         select_league(new_page, 'libertadores')
         try: 
