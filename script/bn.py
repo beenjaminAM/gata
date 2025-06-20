@@ -46,6 +46,8 @@ def run(playwright: Playwright):
                 const event_match = rawFields[1].innerText.split('\\n').slice(0,2);
                 [result.home, result.visit] = event_match;
                 const event_match_odds = rawFields[2].firstElementChild.querySelectorAll(':scope > div > span:last-child')
+                const odds_array = Array.from(event_match_odds).map(el=>el.innerText);
+                [result.home_odds, result.draw, result.visit_odds] = event_match;
                 return result
             }
         """)
