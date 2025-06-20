@@ -37,9 +37,9 @@ def run():
         )
 
         def select_league(new_page, league):
-            new_page.evaluate("""
+            found = new_page.evaluate("""
                 (league)=> {
-                    let result = Array.from(document.querySelector('.obg-scroller .obg-scroller-container .obg-scroller-content').children).find(el=>el.innerText.toLowerCase().includes(league))
+                    let result = Array.from(document.querySelector('.obg-scroller .obg-scroller-container .obg-scroller-content').children).find(el=>el.innerText.toLowerCase().includes(league.toLowerCase()))
                     if (result) result.click();
                     return !!result;
                 }
@@ -47,7 +47,7 @@ def run():
             if not found:
                 raise Exception('League not Found')
             
-        select_league(new_page, 'libertadores')
+        select_league(new_page, 'liga 1')
         try: 
             league = new_page.locator('xpath=//html/body/app-root/obg-m-betting-layout-container/obg-m-sportsbook-layout-container/app-m-sidenav/mat-sidenav-container/mat-sidenav-content/div')#iframe -> events
             new_page.wait_for_timeout(4000)
