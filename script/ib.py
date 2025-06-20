@@ -40,9 +40,13 @@ def run():
             new_page.evaluate("""
                 (league)=> {
                     let result = Array.from(document.querySelector('.obg-scroller .obg-scroller-container .obg-scroller-content').children).find(el=>el.innerText.toLowerCase().includes(league))
-                    if (result) result.click()
+                    if (result) result.click();
+                    return !!result;
                 }
             """, arg=league)
+            if not found:
+                raise Exception('Legue not Found')
+            
         select_league(new_page, 'libertadores')
         try: 
             league = new_page.locator('xpath=//html/body/app-root/obg-m-betting-layout-container/obg-m-sportsbook-layout-container/app-m-sidenav/mat-sidenav-container/mat-sidenav-content/div')#iframe -> events
