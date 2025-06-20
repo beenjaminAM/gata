@@ -97,7 +97,7 @@ def run(playwright: Playwright) -> None:
                         return acc
                     }, { })
                     values['date'] = date.innerText
-                    values['category'] = category.innerText
+                    values['category'] = category.innerText.replace('•', '-')
                     values['home'] = home.innerText
                     values['visit'] = visit.innerText
                     return values
