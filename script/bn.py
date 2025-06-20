@@ -39,12 +39,14 @@ def run(playwright: Playwright):
     print(leagues)
     list_data = page.evaluate("""
             () => {
+                const result = { }
                 const rawMatches = document.querySelectorAll("[data-qa^='match_day_'] > div > div");
                 const rawFields = Array.from(rawMatches[0].firstElementChild?.querySelectorAll(":scope > div:not(.v-popper--theme-dropdown)")).slice(0,3); 
-                const event_date = rawFields[0].innerText.trim().replace('\\n', ' ');
-                const event_match = rawFields[1].innerText.split('\\n').slice(0,2)
+                result['date'] = rawFields[0].innerText.trim().replace('\\n', ' ');
+                const event_match = rawFields[1].innerText.split('\\n').slice(0,2);
+                [result.home, result.visit] = event_match;
                 const event_match_odds = rawFields[2].firstElementChild.querySelectorAll(':scope > div > span:last-child')
-                return event_match.join(' vs ')
+                return result
             }
         """)
     print(list_data)
