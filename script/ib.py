@@ -70,7 +70,7 @@ def run():
                     
                     const dates = Array.from(league?.querySelectorAll('obg-uiuplift-accordion > :not(div)') || []);
                     const result = dates.map(cont => { 
-                        event_date = cont?.querySelector('.obg-uiuplift-accordion-item-header')?.innerText?.trim().replace(/\\n/g, '') || null;
+                        event_date = cont?.querySelector('.obg-uiuplift-accordion-item-header')?.innerText?.replace(/\\u00A0/g, ' ').trim().replace(/\\n/g, '') || null;
                         
                         //let events = Array.from(league?.querySelectorAll('obg-uiuplift-accordion > :not(div)') || []).map(el => Array.from(el.querySelectorAll('a.obg-event-row-details'))).flat(1).map(el => el.querySelector('.obg-event-scorecard-labels').innerText.concat(' ', el.querySelector('.obg-event-info-header .obg-event-status').innerText));
                         return { "date": event_date }
