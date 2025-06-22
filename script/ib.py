@@ -70,10 +70,14 @@ def run():
                     
                     const dates = Array.from(league?.querySelectorAll('obg-uiuplift-accordion > :not(div)') || []);
                     const result = dates.map(cont => { 
-                        events_date = cont?.querySelector('.obg-uiuplift-accordion-item-header')?.innerText?.replace(/\\u00A0/g, ' ').trim().replace(/\\n/g, '') || null;
-                        let envents = Array.from(cont.querySelectorAll('a.obg-event-row-details'))
-                        let values = envents.map(el => Array.from(el.querySelectorAll('.obg-event-scorecard-participants-name')).map(el => el.innerText))
-                        return { "date": events_date, "events": values }
+                        let events_date = cont?.querySelector('.obg-uiuplift-accordion-item-header')?.innerText?.replace(/\\u00A0/g, ' ').trim().replace(/\\n/g, '') || null;
+                        let participants_details = Array.from(cont.querySelectorAll('a.obg-event-row-details'))
+                        let values = participants_details.map(el => {
+                            let participants_array = Array.from(el.querySelectorAll('.obg-event-scorecard-participants-name')).map(el => el.innerText);
+                            return participants_array
+                        })
+                        let parts_odds = Array.from(cont.querySelectorAll('.obg-selection-base.genos-interactive.ng-star-inserted')).map(el => el.innerText.replace('\\n', '-'))
+                        return { "date": events_date, "events": values, "events_odds": parts_odds }
                     })
                                         
                     return result;
