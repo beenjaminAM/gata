@@ -76,7 +76,8 @@ def run():
                         events_array = events.map(data => {
                             let event_details = data.querySelector('a.obg-event-row-details');
                             let participants_names = Array.from(event_details.querySelectorAll('.obg-event-scorecard-participants-name')).map(el => el.innerText);
-                            return {"date": events_date, "parts": participants_names}
+                            let parts_odds = Array.from(data.querySelectorAll('.obg-selection-base.genos-interactive.ng-star-inserted')).map(el => el.innerText.replace('\\n', '-'))
+                            return {"date": events_date, "parts": participants_names, "odds": parts_odds}
                         })
                         return events_array
                     })
