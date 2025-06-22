@@ -69,15 +69,16 @@ def run():
                     league.querySelector('.obg-scrollbar-content').scrollTop = league.querySelector('.obg-scrollbar-content').scrollHeight
                     
                     const dates = Array.from(league?.querySelectorAll('obg-uiuplift-accordion > :not(div)') || []);
-                    const result = dates.map(cont => { 
+                    const result = dates.map(cont => {
                         let events_date = cont?.querySelector('.obg-uiuplift-accordion-item-header')?.innerText?.replace(/\\u00A0/g, ' ').trim().replace(/\\n/g, '') || null;
-                        let participants_details = Array.from(cont.querySelectorAll('a.obg-event-row-details'))
-                        let values = participants_details.map(el => {
-                            let participants_array = Array.from(el.querySelectorAll('.obg-event-scorecard-participants-name')).map(el => el.innerText);
-                            return participants_array
+                        
+                        let events = Array.from(cont?.querySelectorAll('.obg-event-table-container > *:not(div)'));
+                        events_array = events.map(data => {
+                            let event_details = data.querySelector('a.obg-event-row-details');
+                            let participants_names = Array.from(event_details.querySelectorAll('.obg-event-scorecard-participants-name')).map(el => el.innerText);
+                            return {"date": events_date, "parts": participants_names}
                         })
-                        let parts_odds = Array.from(cont.querySelectorAll('.obg-selection-base.genos-interactive.ng-star-inserted')).map(el => el.innerText.replace('\\n', '-'))
-                        return { "date": events_date, "events": values, "events_odds": parts_odds }
+                        return events_array
                     })
                                         
                     return result;
