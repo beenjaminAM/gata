@@ -70,7 +70,7 @@ def run():
                     
                     const dates = Array.from(league?.querySelectorAll('obg-uiuplift-accordion > :not(div)') || []);
                     const result = dates.map(cont => { 
-                        event_date = cont?.querySelector('.obg-uiuplift-accordion-item-header')?.innerText?.replace(/\\u00A0/g, ' ').trim().replace(/\\n/g, '') || null;
+                        events_date = cont?.querySelector('.obg-uiuplift-accordion-item-header')?.innerText?.replace(/\\u00A0/g, ' ').trim().replace(/\\n/g, '') || null;
                         let envents = Array.from(cont.querySelectorAll('a.obg-event-row-details'))
                         let values = envents.map(el => Array.from(el.querySelectorAll('.obg-event-scorecard-participants-name')).map(el => el.innerText))
                         return { "date": events_date, "events": values }
