@@ -465,6 +465,6 @@ main {
 
     .header__nav li{
         border-top: none;
-        width: auto;
+        width: auto;/* Instead of 100% width for horizontal layout */
     } 
 }
