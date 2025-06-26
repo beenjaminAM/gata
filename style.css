@@ -455,4 +455,7 @@ main {
     .button-menu {
         display: none;
     }
+    .header__nav {
+        display: block;
+    }
 }
