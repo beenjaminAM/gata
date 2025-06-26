@@ -464,7 +464,7 @@ main {
     }
 
     .header__nav li{
-        border-top: none;
+        border-top: none; /* Remove the top border */
         width: auto;/* Instead of 100% width for horizontal layout */
     } 
 }
