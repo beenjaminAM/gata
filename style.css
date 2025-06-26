@@ -449,3 +449,10 @@ main {
         --horientation: 180deg;
     }
 }
+
+@media screen and (min-width: 481px) {
+    
+    .button-menu {
+        display: none;
+    }
+}
