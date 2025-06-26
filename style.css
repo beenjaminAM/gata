@@ -458,4 +458,9 @@ main {
     .header__nav {
         display: block;
     }
+
+    .header__nav ul {
+        flex-flow: row nowrap;
+    }
+
 }
