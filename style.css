@@ -465,5 +465,6 @@ main {
 
     .header__nav li{
         border-top: none;
+        width: auto;
     } 
 }
