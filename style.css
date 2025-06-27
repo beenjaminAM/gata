@@ -80,7 +80,8 @@ main {
 .gradient-border {
     border-radius: 5px;
     position: relative;
-    display: block;
+    display: flex;
+    align-items: center;
     background-color: var(--black-100);
 }
 
