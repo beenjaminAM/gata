@@ -457,6 +457,7 @@ main {
         display: none;
     }
     .header__nav {
+        margin-top: 0;
         display: block;
     }
 
