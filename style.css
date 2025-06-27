@@ -450,7 +450,7 @@ main {
     }
 }
 
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 576px) {
     
     .button-menu {
         display: none;
