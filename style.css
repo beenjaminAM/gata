@@ -438,10 +438,10 @@ main {
 }
 
 .ground {
-    height: 73.33px;
+    height: calc(73.33px / 2);
     background-color: #9E2A2F;
     background-image: url('brick.png');
-    background-size: auto 73.33px;
+    background-size: auto calc(73.33px / 2);;
     background-repeat: repeat-x;
 }
 
