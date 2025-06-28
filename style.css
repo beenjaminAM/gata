@@ -439,6 +439,7 @@ main {
 
 .ground {
     height: 73.33px;
+    background-color: #9E2A2F;
 }
 
 @keyframes avatar-move-x {
