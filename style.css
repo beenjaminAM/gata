@@ -424,7 +424,6 @@ main {
 
 .game-world {
     --horientation: 0deg;
-    height: 73.33px;
     width: 100%;
     border: 1px solid red;
     overflow: hidden; /*Prevents horizontal scrollbar  --avatar-flip --horientation*/
