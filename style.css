@@ -437,6 +437,10 @@ main {
     animation: avatar-move-x 24s linear infinite;
 }
 
+.ground {
+    height: 73.33px;
+}
+
 @keyframes avatar-move-x {
     0% {
         --avatar-offset: 60px;
