@@ -28,6 +28,10 @@
         --text-color: var(--white-200);
         --background-color: var(--black-200);
     }
+
+    .ground {
+        filter: invert(1);
+    }
 }
 
 /* || GENERAL STYLES */
