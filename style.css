@@ -48,6 +48,10 @@ body:has(#theme-toggle:checked) {
     --background-color: var(--black-200);
 }
 
+body:has(#theme-toggle:checked) .ground {
+    filter: invert(1);
+}
+
 body {
     display: flex;
     flex-direction: column;
