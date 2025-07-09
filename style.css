@@ -27,7 +27,7 @@
     --background-color: var(--white-200);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     :root {
         --text-color: var(--white-200);
         --background-color: var(--black-200);
@@ -36,7 +36,7 @@
     .ground {
         filter: invert(1);
     }
-}
+} */
 
 /* || GENERAL STYLES */
 html {
