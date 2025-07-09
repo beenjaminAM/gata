@@ -76,6 +76,19 @@ main {
 
 /* || BLOCKS */
 /* aka components */
+.theme-toggle-label {
+    position: fixed;
+    top: 4rem;
+    right: 1rem;
+    padding: 0.5rem;
+    background: var(--background-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 999;
+    font-size: 1.2rem;
+}
+
 .coolborder {
     position: relative;
     z-index: 1;
