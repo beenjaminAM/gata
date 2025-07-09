@@ -43,6 +43,11 @@ html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body:has(#theme-toggle:checked) {
+    --text-color: var(--white-200);
+    --background-color: var(--black-200);
+}
+
 body {
     display: flex;
     flex-direction: column;
