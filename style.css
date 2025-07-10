@@ -351,6 +351,9 @@ main {
 
 /* || MODIFIERS */
 /* aka components */
+.code-frame {
+    position: relative;
+}
 
 .code {
     white-space: pre; /*line breaks*/
