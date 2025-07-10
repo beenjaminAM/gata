@@ -304,7 +304,7 @@ main {
     margin-bottom: 0.5em;
 }
 
-.main__section article:nth-of-type(1) > :nth-child(2)::after {
+.main__section article:nth-of-type(1) > :nth-child(2) > :first-child::after {
     content: 'FROM mcr.microsoft.com/playwright/python:v1.52.0-noble\A\AUSER pwuser\A WORKDIR /home/pwuser/app\A\A# Copy required files\A COPY requirements.txt .\A COPY at.py .\A\A# Install python dependencies\A RUN pip install -r requirements.txt\A\A# run script\A CMD ["python", "./at.py"]';
 }
 .main__section article:nth-of-type(1) > :nth-child(3)::after {
@@ -312,7 +312,8 @@ main {
     white-space: pre-wrap;
     display: block;
 }
-.main__section article:nth-of-type(1) > :nth-child(4)::after {
+
+.main__section article:nth-of-type(1) > :nth-child(4) > :first-child::after {
     content: 'docker build -t my-scraper-image . \A docker run -it --rm --ipc=host --user pwuser --security-opt seccomp=seccomp_profile.json my-scraper-image';
     /* white-space: pre-wrap;
     display: block; */
@@ -325,7 +326,7 @@ main {
     content: '';
     white-space: pre-wrap;
 }
-.main__section article:nth-of-type(2) > :nth-child(3)::after {
+.main__section article:nth-of-type(2) > :nth-child(3) > :first-child::after {
     content: 'python -m venv env\A.\\venv\\Scripts\\activate\Apip install -r requirements.txt\Aplaywright install chromium';
     white-space: pre-wrap;
 }
