@@ -24,6 +24,10 @@
     --white-300: #949292;   
 
     --card-dark-bg: #1b1d21;
+
+    --text-color: var(--black-200);
+    
+    --background-color: var(--white-200);
 }
 /* @media (prefers-color-scheme: dark) {
   :root {
@@ -32,6 +36,7 @@
   }
 }
 
+<<<<<<< HEAD
 @media (prefers-color-scheme: light) {
   :root {
     --text-color: var(--black-200);
@@ -47,6 +52,9 @@
 } */
 
 /* @media (prefers-color-scheme: darks) {
+=======
+/* @media (prefers-color-scheme: dark) {
+>>>>>>> 6e3c3a30b04f64724762d4c726a7c478eb66c6d0
     :root {
         --text-color: var(--white-200);
         --background-color: var(--black-200);
@@ -56,6 +64,7 @@
         filter: invert(1);
     }
 } */
+<<<<<<< HEAD
  :is(.theme-toggle:checked) {
     --text-color: var(--white-200);
     --background-color: var(--black-200);
@@ -73,10 +82,21 @@
     z-index: 999;
     font-size: 1.2rem;
 }
+=======
+>>>>>>> 6e3c3a30b04f64724762d4c726a7c478eb66c6d0
 
 /* || GENERAL STYLES */
 html {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+body:has(#theme-toggle:checked) {
+    --text-color: var(--white-200);
+    --background-color: var(--black-200);
+}
+
+body:has(#theme-toggle:checked) .ground {
+    filter: invert(1);
 }
 
 body {
@@ -122,6 +142,19 @@ body:has(#theme-toggle:checked) {
 
 /* || BLOCKS */
 /* aka components */
+.theme-toggle-label {
+    position: fixed;
+    top: 4rem;
+    right: 1rem;
+    padding: 0.5rem;
+    background: var(--background-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 999;
+    font-size: 1.2rem;
+}
+
 .coolborder {
     position: relative;
     z-index: 1;
@@ -324,7 +357,7 @@ body:has(#theme-toggle:checked) {
     margin-bottom: 0.5em;
 }
 
-.main__section article:nth-of-type(1) > :nth-child(2)::after {
+.main__section article:nth-of-type(1) > :nth-child(2) > :first-child::after {
     content: 'FROM mcr.microsoft.com/playwright/python:v1.52.0-noble\A\AUSER pwuser\A WORKDIR /home/pwuser/app\A\A# Copy required files\A COPY requirements.txt .\A COPY at.py .\A\A# Install python dependencies\A RUN pip install -r requirements.txt\A\A# run script\A CMD ["python", "./at.py"]';
 }
 .main__section article:nth-of-type(1) > :nth-child(3)::after {
@@ -332,7 +365,8 @@ body:has(#theme-toggle:checked) {
     white-space: pre-wrap;
     display: block;
 }
-.main__section article:nth-of-type(1) > :nth-child(4)::after {
+
+.main__section article:nth-of-type(1) > :nth-child(4) > :first-child::after {
     content: 'docker build -t my-scraper-image . \A docker run -it --rm --ipc=host --user pwuser --security-opt seccomp=seccomp_profile.json my-scraper-image';
     /* white-space: pre-wrap;
     display: block; */
@@ -345,7 +379,7 @@ body:has(#theme-toggle:checked) {
     content: '';
     white-space: pre-wrap;
 }
-.main__section article:nth-of-type(2) > :nth-child(3)::after {
+.main__section article:nth-of-type(2) > :nth-child(3) > :first-child::after {
     content: 'python -m venv env\A.\\venv\\Scripts\\activate\Apip install -r requirements.txt\Aplaywright install chromium';
     white-space: pre-wrap;
 }
@@ -353,7 +387,7 @@ body:has(#theme-toggle:checked) {
     content: 'python -m venv env. Initialize the venv to isolate Python packages locally. \A\A \\venv\\Scripts\\activate Activate the virtual environment to use the isolated packages. \A\Apip install -r requirements.txt Install all packages listed in requirements.txt. \A\Aplaywright install chromium Install the Chromium browser driver to run Playwright.';
     white-space: pre-wrap;
 }
-.main__section article:nth-of-type(2) > :nth-child(5)::after {
+.main__section article:nth-of-type(2) > :nth-child(5) > :first-child::after {
     content: 'python .\\at.py';
     white-space: pre-wrap;
 }
@@ -370,6 +404,9 @@ body:has(#theme-toggle:checked) {
 
 /* || MODIFIERS */
 /* aka components */
+.code-frame {
+    position: relative;
+}
 
 .code {
     white-space: pre; /*line breaks*/
@@ -387,7 +424,6 @@ body:has(#theme-toggle:checked) {
     border-top-right-radius: 6px; 
     border-bottom-left-radius: 6px; 
     border-bottom-right-radius: 6px;
-    position: relative;
     padding-top: 2.5rem;
 }
 
