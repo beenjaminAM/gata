@@ -44,10 +44,10 @@ def run(playwright: Playwright):
                 const rawFields = Array.from(rawMatches[0].firstElementChild?.querySelectorAll(":scope > div:not(.v-popper--theme-dropdown)")).slice(0,3); 
                 result['date'] = rawFields[0].innerText.trim().replace('\\n', ' ');
                 const event_match = rawFields[1].innerText.split('\\n').slice(0,2);
-                [result.home, result.visit] = event_match;
+                [result['home'], result['visit']] = event_match;
                 const event_match_odds = rawFields[2].firstElementChild.querySelectorAll(':scope > div > span:last-child')
                 const odds_array = Array.from(event_match_odds).map(el=>el.innerText.trim());
-                [result.home_odds, result.draw, result.visit_odds] = odds_array;
+                [result['home_odds'], result['draw'], result['visit_odds']] = odds_array;
                 return result
             }
         """)
