@@ -44,7 +44,7 @@ def run(playwright: Playwright):
             league.firstElementChild.click()
         }
     """)
-    
+    page.wait_for_timeout(2000)
     print(leagues)
     list_data = page.evaluate("""
             () => {
