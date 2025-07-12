@@ -11,19 +11,42 @@
 
 /* || VARIABLES */
 :root {
+    --text-color: var(--black-200);
+    --background-color: var(--white-200);
+    --theme: white;
     --black-100: #090909;   
     --black-200: #121212;   
     --black-300: #222831;   
     --black-400: #393E46;
-      
+
     --white-100: #ffffff;   
     --white-200: #f5f5f5;   
     --white-300: #949292;   
 
     --card-dark-bg: #1b1d21;
 }
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: var(--white-200);
+    --background-color: var(--black-200);
+  }
+}
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
+  :root {
+    --text-color: var(--black-200);
+    --background-color: var(--white-100);
+  }
+} */
+
+/* Overwrite con toggle */
+/* body:has(#theme-toggle:checked) {
+    --theme: black;
+    --text-color: var(--white-200);
+    --background-color: var(--black-200);
+} */
+
+/* @media (prefers-color-scheme: darks) {
     :root {
         --text-color: var(--white-200);
         --background-color: var(--black-200);
@@ -32,6 +55,23 @@
     .ground {
         filter: invert(1);
     }
+} */
+ :is(.theme-toggle:checked) {
+    --text-color: var(--white-200);
+    --background-color: var(--black-200);
+}
+
+.theme-toggle-label {
+    position: fixed;
+    top: 4rem;
+    right: 1rem;
+    padding: 0.5rem;
+    background: var(--background-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 999;
+    font-size: 1.2rem;
 }
 
 /* || GENERAL STYLES */
@@ -72,6 +112,12 @@ main {
     to {
         --angle: 360deg;
     }
+}
+
+body:has(#theme-toggle:checked) {
+    --theme: black;
+    --text-color: var(--white-200);
+    --background-color: var(--black-200);
 }
 
 /* || BLOCKS */
@@ -447,6 +493,7 @@ main {
     background-image: url('brick.png');
     background-size: auto calc(73.33px / 2);;
     background-repeat: repeat-x;
+    filter: invert(1);
 }
 
 @keyframes avatar-move-x {
