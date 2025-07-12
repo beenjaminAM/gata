@@ -36,6 +36,15 @@ def run(playwright: Playwright):
             return Array.from(leagues).map(el => el.querySelector('span').innerText);
         }
     """)
+    # Click element
+    page.evaluate("""
+        () => {
+            let leagues = document.querySelectorAll('.swiper-wrapper')[1].children;
+            league = Array.from(leagues).find(el => el.querySelector('span')?.innerText == "Liga 1");
+            league.firstElementChild.click()
+        }
+    """)
+    
     print(leagues)
     list_data = page.evaluate("""
             () => {
