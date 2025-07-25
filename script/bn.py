@@ -44,6 +44,17 @@ def run(playwright: Playwright):
             league.firstElementChild.click()
         }
     """)
+    # Selects a league tab based on its displayed name and waits until the tab shows as active
+    # by verifying specific CSS classes indicating the active state
+    page.wait_for_function("""
+        () => {
+            let leagues = document.querySelectorAll('.swiper-wrapper')[1].children; 
+            league = Array.from(leagues).find(el => el.querySelector('span')?.innerText == "Copa America (F)");
+            let classList = league.firstElementChild.classList
+            if (classList.contains('tw-border-solid') && classList.contains('tw-border-n')) return true
+            return false
+        }
+    """)
     page.wait_for_timeout(2000)
     print(leagues)
     list_data = page.evaluate("""
