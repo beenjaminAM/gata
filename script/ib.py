@@ -2,8 +2,8 @@ from playwright.sync_api import sync_playwright
 
 def run():
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
-        context = browser.new_context()
+        browser = p.chromium.launch(headless=False, args=["--start-maximized"])
+        context = browser.new_context(no_viewport=True)
         page = context.new_page()
 
         page.goto("https://inkabet.pe/pe/apuestas-deportivas/")
