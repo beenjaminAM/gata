@@ -50,7 +50,8 @@ def run(playwright: Playwright):
         () => {
             let leagues = document.querySelectorAll('.swiper-wrapper')[1].children; 
             league = Array.from(leagues).find(el => el.querySelector('span')?.innerText == "Copa America (F)");
-            let classList = league.firstElementChild.classList
+            let classList = league?.firstElementChild?.classList
+            if (!classList) return false
             if (classList.contains('tw-border-solid') && classList.contains('tw-border-n')) return true
             return false
         }
