@@ -49,7 +49,7 @@ def run():
             
         select_league(new_page, 'liga 1')
         try: 
-            league = new_page.locator('xpath=//html/body/app-root/obg-m-betting-layout-container/obg-m-sportsbook-layout-container/app-m-sidenav/mat-sidenav-container/mat-sidenav-content/div')#iframe -> events
+            league = new_page.locator('xpath=//html/body/app-root/obg-m-sportsbook-layout-container/app-m-sidenav/mat-sidenav-container/mat-sidenav-content/div')#iframe -> events
             new_page.wait_for_timeout(4000)
             dates = new_page.evaluate("""
                 () => {
