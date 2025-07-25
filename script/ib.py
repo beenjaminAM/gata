@@ -13,8 +13,8 @@ def run():
             () => {
                 const loading = document.querySelector('#loader');
                 if (!loading) return false;
-                const style = loading?.style?.display
-                if (!loading?.style?.display.includes('none')) return false;
+                const style = loading.style.display;
+                if (!style.includes('none')) return false;
                 return true;
             }
         """)
