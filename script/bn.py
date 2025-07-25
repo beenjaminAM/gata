@@ -39,8 +39,8 @@ def run(playwright: Playwright):
     # Click element
     page.evaluate("""
         () => {
-            let leagues = document.querySelectorAll('.swiper-wrapper')[1].children;
-            league = Array.from(leagues).find(el => el.querySelector('span')?.innerText == "Liga 1");
+            let leagues = document.querySelectorAll('.swiper-wrapper')[1].children; 
+            league = Array.from(leagues).find(el => el.querySelector('span')?.innerText == "Copa America (F)");
             league.firstElementChild.click()
         }
     """)
