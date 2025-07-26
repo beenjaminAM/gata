@@ -131,11 +131,6 @@ main {
     }
 }
 
-body:has(#theme-toggle:checked) {
-    --theme: black;
-    --text-color: var(--white-200);
-    --background-color: var(--black-200);
-}
 
 /* || BLOCKS */
 /* aka components */
@@ -152,10 +147,6 @@ body:has(#theme-toggle:checked) {
     font-size: 1.2rem;
 }
 
-.coolborder {
-    position: relative;
-    z-index: 1;
-}
 
 .gradient-border {
     border-radius: 5px;
