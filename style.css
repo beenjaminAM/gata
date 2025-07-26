@@ -139,8 +139,8 @@ main {
     top: 4rem;
     right: 1rem;
     padding: 0.5rem;
-    background: var(--background-color);
-    color: var(--text-color);
+    background: var(--text-color);
+    color: var(--background-color);
     border-radius: 4px;
     cursor: pointer;
     z-index: 999;
