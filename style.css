@@ -33,25 +33,7 @@
   }
 }
 
-<<<<<<< HEAD
-@media (prefers-color-scheme: light) {
-  :root {
-    --text-color: var(--black-200);
-    --background-color: var(--white-100);
-  }
-} */
-
-/* Overwrite con toggle */
-/* body:has(#theme-toggle:checked) {
-    --theme: black;
-    --text-color: var(--white-200);
-    --background-color: var(--black-200);
-} */
-
-/* @media (prefers-color-scheme: darks) {
-=======
 /* @media (prefers-color-scheme: dark) {
->>>>>>> 6e3c3a30b04f64724762d4c726a7c478eb66c6d0
     :root {
         --text-color: var(--white-200);
         --background-color: var(--black-200);
