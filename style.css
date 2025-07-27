@@ -479,7 +479,6 @@ main {
     background-image: url('brick.png');
     background-size: auto calc(73.33px / 2);;
     background-repeat: repeat-x;
-    filter: invert(1);
 }
 
 @keyframes avatar-move-x {
