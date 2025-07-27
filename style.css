@@ -275,16 +275,16 @@ main {
 }
 
 .header__nav li:nth-child(1):after {
-    content: 'Youtube';
+    content: '🎥 Youtube';
 }
 .header__nav li:nth-child(2):after {
-    content: 'Github';
+    content: '💻 Github';
 }
 .header__nav li:nth-child(3):after {
-    content: 'Next';
+    content: '⚡ Next';
 }
 .header__nav li:nth-child(4):after {
-    content: 'Docs';
+    content: '📚 Docs';
 }
 
 .main__subtitle {
