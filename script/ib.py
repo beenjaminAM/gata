@@ -29,6 +29,17 @@ def run():
         new_page = context.new_page()
         new_page.goto(iframe_src)
 
+        # Zoom out the page and hide unnecessary UI elements to ensure that all dynamic content is fully loaded and visible in the DOM.
+        new_page.evaluate("document.body.style.zoom=0.6")
+        time.sleep(0.7)
+        button1 = new_page.get_by_role("button", name="Ocultar deportes")
+        if button1.is_visible():
+            button1.click()
+
+        time.sleep(0.5)  # Slight delay to let the UI update
+        button2 = new_page.get_by_role("button", name="Ocultar cupón de apuestas")
+        if button2.is_visible():
+            button2.click()
         new_page.wait_for_selector(".obg-scroller .obg-scroller-container .obg-scroller-content")
 
         scroller_items = new_page.eval_on_selector(
