@@ -496,6 +496,7 @@ main {
 
 /* This media query only overrides specific properties for responsive layout; 
    it does not replace the entire class definitions */
+/* || SMALL */ 
 @media screen and (min-width: 576px) {
     
     .button-menu {
