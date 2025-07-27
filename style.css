@@ -520,4 +520,17 @@ main {
         justify-content: space-between;
         align-items: center;
     }
+
+    .header__nav li:nth-child(1):after {
+        content: 'Youtube';
+    }
+    .header__nav li:nth-child(2):after {
+        content: 'Github';
+    }
+    .header__nav li:nth-child(3):after {
+        content: 'Next';
+    }
+    .header__nav li:nth-child(4):after {
+        content: 'Docs';
+    }
 }
