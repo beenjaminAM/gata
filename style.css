@@ -497,6 +497,19 @@ main {
     background-repeat: repeat-x;
 }
 
+.pipe {
+    position: absolute;
+    z-index: 10;
+    height: calc(73.33px * 1.5);
+    /* width: calc(421px * ((73.33 * 1.5) / 697)); */
+    width: 65%;
+    bottom: calc(73.33px * 0.45);
+    background-image: url('pipe.png');
+    background-size: auto calc(73.33px * 1.5);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+
 @keyframes avatar-move-x {
     0% {
         --avatar-offset: 60px;
