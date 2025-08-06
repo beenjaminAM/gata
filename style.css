@@ -61,6 +61,11 @@ body:has(#theme-toggle:checked) .ground {
     filter: invert(1);
 }
 
+body:has(#code-theme-toggle:checked) {
+    --code-bg: #F7FAFC;
+    --code-color: #2F4858;
+}
+
 body {
     display: flex;
     flex-direction: column;
