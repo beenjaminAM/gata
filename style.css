@@ -25,6 +25,8 @@
 
     --card-dark-bg: #1b1d21;
 
+    --code-bg: #1e1e1e; 
+
 }
 /* @media (prefers-color-scheme: dark) {
   :root {
