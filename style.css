@@ -117,6 +117,17 @@ main {
     font-size: 1.2rem;
 }
 
+.code-theme-toggle-btn {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.4rem;
+    padding: 0.1rem;
+    background: var(--black-200);
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 999;
+    font-size: 1rem;
+}
 
 .gradient-border {
     border-radius: 5px;
