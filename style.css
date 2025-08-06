@@ -471,9 +471,22 @@ main {
 .avatar-wrapper {
     width: var(--avatar-offset);
     border: 1px solid blue;
+    background-color: rgba(255, 0, 0, 0.394);
     display: flex;
     flex-direction: row-reverse;
     animation: avatar-move-x 24s linear infinite;
+    position: absolute;
+    z-index: 19;
+    height: 73.33px;
+    top: calc(73.33px * 1);
+}
+
+.surface-layer {
+    position: absolute;
+    width: 100%;
+    top: calc(73.33px * 2);
+    height: calc(73.33px / 2);
+    z-index: 100;
 }
 
 .ground {
