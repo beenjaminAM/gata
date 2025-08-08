@@ -385,7 +385,7 @@ main {
     white-space: pre; /*line breaks*/
     background: var(--code-bg);
     color: var(--code-color);
-    font-family: monospace;
+    font-family: 'Fira Code', monospace;
     overflow-x: auto;
     max-width: 100%;
     padding: 0.5rem;
