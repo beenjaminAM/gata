@@ -547,6 +547,12 @@ main {
 
 /* This media query only overrides specific properties for responsive layout; 
    it does not replace the entire class definitions */
+
+@media screen and (max-width: 360px) {
+    html {
+        font-size: 0.9rem;
+    }
+}
 /* || SMALL */ 
 @media screen and (min-width: 576px) {
     
