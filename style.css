@@ -593,3 +593,10 @@ main {
         content: 'Docs';
     }
 }
+
+/* || LARGE */ 
+@media screen and (min-width: 992px) {
+    html {
+        font-size: clamp(1.05rem, 1vw + 0.6rem, 1.4rem);
+    }
+}
