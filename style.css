@@ -51,6 +51,7 @@
 /* || GENERAL STYLES */
 html {
     font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(0.95rem, 1vw + 0.5rem, 1.2rem); /* smart fluid scaling */
 }
 
 body:has(#theme-toggle:checked) {
