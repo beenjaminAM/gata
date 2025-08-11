@@ -89,7 +89,7 @@ def run():
                         
                         let events = Array.from(cont?.querySelectorAll('.obg-event-table-container > *:not(div)')); //calentar -> days -> event
                         events_array = events.map(data => {
-                            let event_details = data.querySelector('a.obg-event-row-details');
+                            let event_details = data.querySelector('a.obg-event-row-details'); // match details (teams and time)
                             let participants_names = Array.from(event_details.querySelectorAll('.obg-event-scorecard-participants-name')).map(el => el.innerText);
                             let parts_odds = Array.from(data.querySelectorAll('.obg-selection-base.genos-interactive.ng-star-inserted')).map(el => el.innerText.replace('\\n', '-'))
                             return {"date": events_date, "parts": participants_names, "odds": parts_odds}
