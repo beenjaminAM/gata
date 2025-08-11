@@ -93,6 +93,28 @@ def run():
                             let participants_names = Array.from(event_details.querySelectorAll('.obg-event-scorecard-participants-name')).map(el => el.innerText);
                             let date_time = event_details.querySelector('time').innerText // will return null on live matches
                             const betting = data.querySelectorAll('.obg-event-row-wrapper')
+                            let home_team = betting[0].querySelectorAll('.obg-selection-v2-label')[0].innerText
+                            let away_team = betting[0].querySelectorAll('.obg-selection-v2-label')[2].innerText
+                            let home_win_odds = betting[0].querySelectorAll('.obg-selection-base-odds')[0].innerText
+                            let draw_odds     = betting[0].querySelectorAll('.obg-selection-base-odds')[1].innerText
+                            let away_win_odds = betting[0].querySelectorAll('.obg-selection-base-odds')[2].innerText
+                            let test = {
+                                "home_team": "Sport Boys Association",
+                                "away_team": "Deportivo Garcilaso",
+                                "home_win_odds": 1.88,
+                                "draw_odds": 3.50,
+                                "away_win_odds": 3.90
+                            }
+                            test = {
+                                "total_goals_market": "2.5",
+                                "over_2_5_goals_odds": 1.95,
+                                "under_2_5_goals_odds": 1.82
+                            }
+                            total_goals_market = betting[1].querySelectorAll('.obg-selection-v2-label-wrapper.horizontal')[0].innerText.split('de ')[1] // más de 2.5
+                            over_goals_market_odds  = betting[1].querySelectorAll('.obg-selection-base-odds')[0].innerText
+                            under_goals_market_odds = betting[1].querySelectorAll('.obg-selection-base-odds')[1].innerText
+                            betting[2] // european handicap
+                            betting[3] // both teams score
                             
                         })
                         return events_array
