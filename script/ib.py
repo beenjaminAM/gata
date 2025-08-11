@@ -92,6 +92,7 @@ def run():
                             let event_details = data.querySelector('a.obg-event-row-details'); // match details (teams and time)
                             let participants_names = Array.from(event_details.querySelectorAll('.obg-event-scorecard-participants-name')).map(el => el.innerText);
                             let date_time = event_details.querySelector('time').innerText // will return null on live matches
+                            const betting = data.querySelectorAll('.obg-event-row-wrapper')
                             
                         })
                         return events_array
