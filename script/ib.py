@@ -115,7 +115,25 @@ def run():
                             under_goals_market_odds = betting[1].querySelectorAll('.obg-selection-base-odds')[1].innerText
                             betting[2] // european handicap
                             betting[3] // both teams score
-                            
+                            let matchObject = {
+                                date_time: date_time,
+                                home_team: home_team,
+                                away_team: away_team,
+                                odds: {
+                                    match_result: {
+                                        home_win: home_win_odds,
+                                        draw: draw_odds,
+                                        away_win: away_win_odds
+                                    },
+                                    total_goals: {
+                                        market: total_goals_market,
+                                        over: over_goals_market_odds,
+                                        under: under_goals_market_odds
+                                    }
+                                }
+                            };
+                            return matchObject
+                                            
                         })
                         return events_array
                     })
