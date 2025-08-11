@@ -1,12 +1,13 @@
 from playwright.sync_api import sync_playwright
-
+import time
+#https://d-cf.inkabetplayground.net/stc-943713193/stc-943713193
 def run():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False, args=["--start-maximized"])
         context = browser.new_context(no_viewport=True)
         page = context.new_page()
 
-        page.goto("https://inkabet.pe/pe/apuestas-deportivas/")
+        page.goto("https://inkabet.pe/pe/apuestas-deportivas/")  #iframe #document.querySelector('#loader').nextElementSibling.getAttribute('src')
 
         # Wait until the loading spinner (#loader) is hidden
         page.wait_for_function("""
@@ -46,6 +47,7 @@ def run():
             ".obg-scroller .obg-scroller-container .obg-scroller-content",
             """container => Array.from(container.children).map(el => el.innerText.trim())"""
         )
+        print(scroller_items)
 
         def select_league(new_page, league):
             found = new_page.evaluate("""
@@ -70,6 +72,8 @@ def run():
                     return Array.from(getElementByXpath('/html/body/app-root/obg-m-sportsbook-layout-container/app-m-sidenav/mat-sidenav-container/mat-sidenav-content/div')?.querySelectorAll('obg-uiuplift-accordion > :not(div)') || []).map(el=>el?.querySelector('.obg-uiuplift-accordion-item-header')?.innerText?.trim().replace(/\\n/g, '') || null);
                 }
             """)
+
+            print(dates)
             array_dates = new_page.evaluate("""
                 () => {
                     function getElementByXpath(path) {
@@ -111,12 +115,13 @@ def run():
                     return events;
                 }
             """)
+            print('Fire')
             for event in events:
                 print(event)
         except Exception as e:
             print("⚠️ Error locating event container:", e)
 
-        page.wait_for_timeout(30000)
+        page.wait_for_timeout(15000)
         context.close()
         browser.close()
 
