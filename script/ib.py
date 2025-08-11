@@ -87,7 +87,7 @@ def run():
                     const result = dates.map(cont => {
                         let events_date = cont?.querySelector('.obg-uiuplift-accordion-item-header')?.innerText?.replace(/\\u00A0/g, ' ').trim().replace(/\\n/g, '') || null;
                         
-                        let events = Array.from(cont?.querySelectorAll('.obg-event-table-container > *:not(div)'));
+                        let events = Array.from(cont?.querySelectorAll('.obg-event-table-container > *:not(div)')); //calentar -> days -> event
                         events_array = events.map(data => {
                             let event_details = data.querySelector('a.obg-event-row-details');
                             let participants_names = Array.from(event_details.querySelectorAll('.obg-event-scorecard-participants-name')).map(el => el.innerText);
