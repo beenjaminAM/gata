@@ -131,6 +131,10 @@ def run():
                                         market: total_goals_market,
                                         over: over_goals_market_odds,
                                         under: under_goals_market_odds
+                                    },
+                                    both_teams_to_score: {
+                                        yes: both_teams_to_score_yes,
+                                        no: both_teams_to_score_no
                                     }
                                 }
                             };
