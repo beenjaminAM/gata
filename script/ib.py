@@ -144,7 +144,7 @@ def run():
                         return events_array
                     })
                                         
-                    return result;
+                    return result.flat();
 
                 }
             """)
