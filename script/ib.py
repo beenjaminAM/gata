@@ -148,7 +148,7 @@ def run():
 
                 }
             """)
-
+            import json
             print(array_dates)
             
             events = new_page.evaluate("""
