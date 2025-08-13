@@ -150,6 +150,7 @@ def run():
             """)
             import json
             print(array_dates)
+            print(json.dumps(array_dates, indent=4, ensure_ascii=False))
             
             events = new_page.evaluate("""
                 () => {
