@@ -105,11 +105,6 @@ def run():
                                 "draw_odds": 3.50,
                                 "away_win_odds": 3.90
                             }
-                            test = {
-                                "total_goals_market": "2.5",
-                                "over_2_5_goals_odds": 1.95,
-                                "under_2_5_goals_odds": 1.82
-                            }
                             total_goals_market = betting[1].querySelectorAll('.obg-selection-v2-label-wrapper.horizontal')[0]?.innerText.split('de ')[1] // más de 2.5
                             over_goals_market_odds  = betting[1].querySelectorAll('.obg-selection-base-odds')[0]?.innerText
                             under_goals_market_odds = betting[1].querySelectorAll('.obg-selection-base-odds')[1]?.innerText
