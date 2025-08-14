@@ -37,26 +37,35 @@ def run(playwright: Playwright):
         }
     """)
     def select_league(page, league):
-        # Click element
-        page.evaluate("""
-            (league) => {
-                let leagues = document.querySelectorAll('.swiper-wrapper')[1].children; 
-                league_el = Array.from(leagues).find(el => el.querySelector('span')?.innerText.toLowerCase() == league.toLowerCase());
-                league_el.firstElementChild.click()
-            }
-        """, arg=league)
-        # Selects a league tab based on its displayed name and waits until the tab shows as active
-        # by verifying specific CSS classes indicating the active state
-        page.wait_for_function("""
-            (league) => {
-                let leagues = document.querySelectorAll('.swiper-wrapper')[1].children; 
-                league_el = Array.from(leagues).find(el => el.querySelector('span')?.innerText.toLowerCase() == league.toLowerCase());
-                let classList = league_el?.firstElementChild?.classList
-                if (!classList) return false
-                if (classList.contains('tw-border-solid') && classList.contains('tw-border-n')) return true
-                return false
-            }
-        """, arg=league)
+        try:
+            # Click element
+            result = page.evaluate("""
+                (league) => {
+                    let leagues = document.querySelectorAll('.swiper-wrapper')[1]?.children;
+                    if (!leagues) throw new Error('League container not found');
+
+                    let league_el = Array.from(leagues).find(el => el.querySelector('span')?.innerText.toLowerCase() === league.toLowerCase());
+                    if (!league_el) throw new Error(`League '${league}' not found`);
+
+                    league_el.firstElementChild?.click();
+                    return true;
+                }
+            """, arg=league)
+
+            # Wait for the element to be marked as active
+            page.wait_for_function("""
+                (league) => {
+                    let leagues = document.querySelectorAll('.swiper-wrapper')[1]?.children;
+                    let league_el = Array.from(leagues).find(el => el.querySelector('span')?.innerText.toLowerCase() === league.toLowerCase());
+                    let classList = league_el?.firstElementChild?.classList;
+
+                    if (!classList) return false;
+                    return classList.contains('tw-border-solid') && classList.contains('tw-border-n');
+                }
+            """, arg=league, timeout=5000)  # Optional: Set a timeout (in ms)
+
+        except Exception as e:
+            raise Exception(f"Failed to select league '{league}': {str(e)}")
     select_league(page, "Copa Libertadores")
     page.wait_for_timeout(2000)
     print(leagues)
