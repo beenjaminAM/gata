@@ -110,8 +110,8 @@ def run():
                             under_goals_market_odds = betting[1].querySelectorAll('.obg-selection-base-odds')[1]?.innerText
                             betting[2] // european handicap
                             betting[3] // both teams score
-                            let both_teams_to_score_yes = betting[3].querySelectorAll('.obg-selection-base-odds')[0].innerText
-                            let both_teams_to_score_no  = betting[3].querySelectorAll('.obg-selection-base-odds')[1].innerText
+                            let both_teams_to_score_yes = betting[3].querySelectorAll('.obg-selection-base-odds')[0]?.innerText
+                            let both_teams_to_score_no  = betting[3].querySelectorAll('.obg-selection-base-odds')[1]?.innerText
                             let matchObject = {
                                 date_time: date_time,
                                 home_team: home_team,
