@@ -36,26 +36,27 @@ def run(playwright: Playwright):
             return Array.from(leagues).map(el => el.querySelector('span').innerText);
         }
     """)
-    # Click element
-    page.evaluate("""
-        () => {
-            let leagues = document.querySelectorAll('.swiper-wrapper')[1].children; 
-            league = Array.from(leagues).find(el => el.querySelector('span')?.innerText == "Copa America (F)");
-            league.firstElementChild.click()
-        }
-    """)
-    # Selects a league tab based on its displayed name and waits until the tab shows as active
-    # by verifying specific CSS classes indicating the active state
-    page.wait_for_function("""
-        () => {
-            let leagues = document.querySelectorAll('.swiper-wrapper')[1].children; 
-            league = Array.from(leagues).find(el => el.querySelector('span')?.innerText == "Copa America (F)");
-            let classList = league?.firstElementChild?.classList
-            if (!classList) return false
-            if (classList.contains('tw-border-solid') && classList.contains('tw-border-n')) return true
-            return false
-        }
-    """)
+    def select_league(page, league):
+        # Click element
+        page.evaluate("""
+            (league) => {
+                let leagues = document.querySelectorAll('.swiper-wrapper')[1].children; 
+                league_el = Array.from(leagues).find(el => el.querySelector('span')?.innerText.toLowerCase() == league.toLowerCase());
+                league_el.firstElementChild.click()
+            }
+        """, arg=league)
+        # Selects a league tab based on its displayed name and waits until the tab shows as active
+        # by verifying specific CSS classes indicating the active state
+        page.wait_for_function("""
+            (league) => {
+                let leagues = document.querySelectorAll('.swiper-wrapper')[1].children; 
+                league_el = Array.from(leagues).find(el => el.querySelector('span')?.innerText.toLowerCase() == league.toLowerCase());
+                let classList = league_el?.firstElementChild?.classList
+                if (!classList) return false
+                if (classList.contains('tw-border-solid') && classList.contains('tw-border-n')) return true
+                return false
+            }
+        """, arg=league)
     page.wait_for_timeout(2000)
     print(leagues)
     list_data = page.evaluate("""
