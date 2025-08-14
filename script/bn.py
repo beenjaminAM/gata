@@ -66,7 +66,11 @@ def run(playwright: Playwright):
 
         except Exception as e:
             raise Exception(f"Failed to select league '{league}': {str(e)}")
-    select_league(page, "Copa Libertadores")
+    try:
+        select_league(page, "Premier League")  # Replace with the league you want
+        print("League selected successfully.")
+    except Exception as err:
+        print(err)
     page.wait_for_timeout(2000)
     print(leagues)
     list_data = page.evaluate("""
