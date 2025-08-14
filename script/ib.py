@@ -98,13 +98,6 @@ def run():
                             let home_win_odds = betting[0].querySelectorAll('.obg-selection-base-odds')[0]?.innerText
                             let draw_odds     = betting[0].querySelectorAll('.obg-selection-base-odds')[1]?.innerText
                             let away_win_odds = betting[0].querySelectorAll('.obg-selection-base-odds')[2]?.innerText
-                            let test = {
-                                "home_team": "Sport Boys Association",
-                                "away_team": "Deportivo Garcilaso",
-                                "home_win_odds": 1.88,
-                                "draw_odds": 3.50,
-                                "away_win_odds": 3.90
-                            }
                             total_goals_market = betting[1].querySelectorAll('.obg-selection-v2-label-wrapper.horizontal')[0]?.innerText.split('de ')[1] // más de 2.5
                             over_goals_market_odds  = betting[1].querySelectorAll('.obg-selection-base-odds')[0]?.innerText
                             under_goals_market_odds = betting[1].querySelectorAll('.obg-selection-base-odds')[1]?.innerText
