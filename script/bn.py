@@ -57,6 +57,7 @@ def run(playwright: Playwright):
                 return false
             }
         """, arg=league)
+    select_league(page, "Copa Libertadores")
     page.wait_for_timeout(2000)
     print(leagues)
     list_data = page.evaluate("""
