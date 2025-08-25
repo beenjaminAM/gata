@@ -114,6 +114,8 @@ def run(playwright: Playwright):
             }
         """)
     print(list_data)
+    import json
+    print(json.dumps(list_data, indent=4, ensure_ascii=False))
 
     page.wait_for_timeout(15000)
     context.close()
