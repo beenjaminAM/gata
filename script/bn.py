@@ -36,6 +36,7 @@ def run(playwright: Playwright):
             return Array.from(leagues).map(el => el.querySelector('span').innerText);
         }
     """)
+    page.locator("#landing-page-modal").get_by_role("button").click()
     def select_league(page, league):
         try:
             # Click element
