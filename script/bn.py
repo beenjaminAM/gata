@@ -76,15 +76,19 @@ def run(playwright: Playwright):
     print(leagues)
     list_data = page.evaluate("""
             () => {
-                const result = { }
-                const rawMatches = document.querySelectorAll("[data-qa^='match_day_'] > div > div");
-                const rawFields = Array.from(rawMatches[0].firstElementChild?.querySelectorAll(":scope > div:not(.v-popper--theme-dropdown)")).slice(0,3); 
-                result['date'] = rawFields[0].innerText.trim().replace('\\n', ' ');
-                const event_match = rawFields[1].innerText.split('\\n').slice(0,2);
-                [result['home'], result['visit']] = event_match;
-                const event_match_odds = rawFields[2].firstElementChild.querySelectorAll(':scope > div > span:last-child')
-                const odds_array = Array.from(event_match_odds).map(el=>el.innerText.trim());
-                [result['home_odds'], result['draw'], result['visit_odds']] = odds_array;
+                result = []
+                const rawMatches = Array.from(document.querySelectorAll("[data-qa^='match_day_'] > div > div > div"));
+                              
+                rawMatches.map((rawMatchData) => {
+                    const matchData = { }
+                    const rawFields = Array.from(rawMatchData?.querySelectorAll(":scope > div")).slice(0,3); 
+                    matchData['date'] = rawFields[0].innerText.trim().replace('\\n', ' ');
+                    const event_match = rawFields[1].innerText.split('\\n').slice(0,2);
+                    [matchData['home'], matchData['visit']] = event_match;
+                    const event_match_odds = rawFields[2].firstElementChild.querySelectorAll(':scope > div > span:last-child')
+                    const odds_array = Array.from(event_match_odds).map(el=>el.innerText.trim());
+                    [matchData['home_odds'], matchData['draw'], matchData['visit_odds']] = odds_array;
+                })
                 return result
             }
         """)
