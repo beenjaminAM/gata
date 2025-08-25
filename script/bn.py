@@ -85,7 +85,7 @@ def run(playwright: Playwright):
                 result = []
                 const rawMatches = Array.from(document.querySelectorAll("[data-qa^='match_day_'] > div > div > div"));
                               
-                rawMatches.map((rawMatchData) => {
+                result = rawMatches.map((rawMatchData) => {
                     const matchData = { }
                     const rawFields = Array.from(rawMatchData?.querySelectorAll(":scope > div")).slice(0,3); 
                     matchData['date'] = rawFields[0].innerText.trim().replace('\\n', ' ');
@@ -94,7 +94,19 @@ def run(playwright: Playwright):
                     const event_match_odds = rawFields[2].firstElementChild.querySelectorAll(':scope > div > span:last-child')
                     const odds_array = Array.from(event_match_odds).map(el=>el.innerText.trim());
                     [matchData['home_odds'], matchData['draw'], matchData['visit_odds']] = odds_array;
-                    result.push(matchData)
+                    let matchObject = {
+                        date_time: matchData['date'],
+                        home_team: matchData['home'],
+                        away_team: matchData['visit'],
+                        odds: {
+                            match_result: {
+                                home_win: matchData['home_odds'],
+                                draw: matchData['draw'],
+                                away_win: matchData['visit_odds']
+                            }
+                        }
+                    };      
+                    return matchObject
                 })
                 return result
             }
