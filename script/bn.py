@@ -88,6 +88,7 @@ def run(playwright: Playwright):
                     const event_match_odds = rawFields[2].firstElementChild.querySelectorAll(':scope > div > span:last-child')
                     const odds_array = Array.from(event_match_odds).map(el=>el.innerText.trim());
                     [matchData['home_odds'], matchData['draw'], matchData['visit_odds']] = odds_array;
+                    result.push(matchData)
                 })
                 return result
             }
