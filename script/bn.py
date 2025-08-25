@@ -80,6 +80,8 @@ def run(playwright: Playwright):
         print(err)
     page.wait_for_timeout(2000)
     print(leagues)
+    # This uses a CSS attribute selector to select all elements where the attribute data-qa starts with the string "match_day_".
+    # tw-border-solid tw-border-n
     list_data = page.evaluate("""
             () => {
                 result = []
